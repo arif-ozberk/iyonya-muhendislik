@@ -2,7 +2,7 @@
 
 
 .Navbar {
-    background-color: $gray-main;
+    background-color: #ffffff7e;
     width: 100%;
     top: 0;
     left: 0;
@@ -10,7 +10,7 @@
     display: flex;
     align-items: center;
     position: fixed;
-    padding: 0 4rem;
+    padding-inline: $inlinePadding;
 
     .navLeft {
         display: flex;
@@ -30,30 +30,7 @@
                 }
             }
 
-            .kurumsalLink {
-                position: relative;
 
-                .kurumsalDropdown {
-                    background-color: yellowgreen;
-                    position: absolute;
-                    top: 100%;
-                    left: 0rem;
-                    display: flex;
-                    flex-direction: column;
-                    row-gap: 0.6rem;
-                    padding: 0.6rem;
-                    animation: fadeInUp-20px 0.3s ease;
-
-                    a {
-                        white-space: nowrap;
-                    }
-                }
-            }
         }
     }
-
-    .navRight {
-
-    }
-
 }

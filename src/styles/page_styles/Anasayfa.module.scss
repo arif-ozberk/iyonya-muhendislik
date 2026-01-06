@@ -2,5 +2,14 @@
 
 
 .Anasayfa {
-    height: 200vh; // Scrollu denemek için koydum. Sayfa dolunca sil.
+    .anasayfaContext {
+        padding-inline: $inlinePadding;
+    }
+
+    .aboutSectionContainer {
+        width: 100%;
+        @include flex-center;
+
+    }
+
 }
