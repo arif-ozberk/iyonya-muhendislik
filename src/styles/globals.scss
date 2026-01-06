@@ -1,0 +1,179 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+
+// Color Palette
+
+$black: #000000;
+$white: #ffffff;
+$dark-main: #111111;
+$dark-faded: #272727;
+$dark-hover: #2c2c2c;
+$dark-light: #313131;
+$gray-main: #888888;
+$gray-faded: #e0e0e0;
+$gray-dark: #5f5f5f;
+$popup-background: rgba(0, 0, 0, 0.8);
+
+
+
+// Misc & Other
+
+$border-rad-xxs: 0.25rem;
+$border-rad-xs: 0.5rem;
+$border-rad-sm: 1rem;
+$border-rad-md: 1.5rem;
+$border-rad-lg: 2rem;
+$border-rad-xl: 3rem;
+$border-rad-xxl: 4rem;
+
+
+
+// Default Styles
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Montserrat", sans-serif;
+    scroll-behavior: smooth;
+    color: $white;
+}
+
+body {
+    background-color: $dark-main;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+}
+
+button {
+    outline: none;
+    cursor: pointer;
+}
+
+input {
+    color: $white;
+
+    &:focus {
+        outline: none;
+    }
+}
+
+textarea {
+    &:focus {
+        outline: none;
+    }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+span {
+    user-select: none;
+}
+
+.App {
+    min-height: 100vh;
+    overflow: hidden;
+    background-color: $dark-main;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: $gray-dark;
+}
+
+::-webkit-scrollbar-track {
+    // background-color: $dark-faded;
+    background-color: transparent;
+}
+
+
+
+// Mixins
+
+@mixin flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@mixin flex-space-between {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+
+
+// Dividers & Containers
+
+.context-wrapper {
+    padding-top: 4rem;
+}
+
+.title-main {
+    font-size: 3.5rem;
+    font-weight: 600;
+    color: $white;
+
+    @media(max-width: 670px) {
+        font-size: 2.2rem;
+    }
+}
+
+.title-second {
+    font-size: 2rem;
+    font-weight: 500;
+    color: $white;
+
+    @media(max-width: 670px) {
+        font-size: 1.8rem;
+    }
+}
+
+
+
+// Animations
+
+@keyframes popupBgFadeIn {
+    from {
+        background-color: transparent;
+    }
+
+    to {
+        background-color: $popup-background;
+    }
+}
+
+
+@keyframes fadeInUp-20px {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

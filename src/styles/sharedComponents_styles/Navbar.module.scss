@@ -1,0 +1,59 @@
+@use "../globals.scss" as *;
+
+
+.Navbar {
+    background-color: $gray-main;
+    width: 100%;
+    top: 0;
+    left: 0;
+    min-height: 4rem;
+    display: flex;
+    align-items: center;
+    position: fixed;
+    padding: 0 4rem;
+
+    .navLeft {
+        display: flex;
+        column-gap: 2rem;
+
+        .navLinks {
+            display: flex;
+            column-gap: 1.5rem;
+
+            li {
+                display: flex;
+                align-items: center;
+
+                a {
+                    font-size: 0.8rem;
+                    font-weight: 500;
+                }
+            }
+
+            .kurumsalLink {
+                position: relative;
+
+                .kurumsalDropdown {
+                    background-color: yellowgreen;
+                    position: absolute;
+                    top: 100%;
+                    left: 0rem;
+                    display: flex;
+                    flex-direction: column;
+                    row-gap: 0.6rem;
+                    padding: 0.6rem;
+                    animation: fadeInUp-20px 0.3s ease;
+
+                    a {
+                        white-space: nowrap;
+                    }
+                }
+            }
+        }
+    }
+
+    .navRight {
+
+    }
+
+}
