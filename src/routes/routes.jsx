@@ -5,31 +5,13 @@ import { createBrowserRouter, createRoutesFromElements, Route } from "react-rout
 
 // Pages
 import Anasayfa from "../pages/Anasayfa";
-import Kurumsal from "../pages/Kurumsal";
-import Kvkk from "../pages/KVKK";
-import CerezPolitikasi from "../pages/CerezPolitikasi";
 import Projeler from "../pages/Projeler";
 import Referanslar from "../pages/Referanslar";
-import TicariBilgiler from "../pages/TicariBilgiler";
 import Iletisim from "../pages/Iletisim";
+import Uyeler from "../pages/Uyeler";
 
 
 export const routes = [
-    {
-        routePath: "/kurumsal",
-        routeElement: <Kurumsal />,
-        pageName: "Kurumsal"
-    },
-    {
-        routePath: "/kvkk",
-        routeElement: <Kvkk />,
-        pageName: "KVKK"
-    },
-    {
-        routePath: "/cerez-politikasi",
-        routeElement: <CerezPolitikasi />,
-        pageName: "Çerez Politikası"
-    },
     {
         routePath: "/projeler",
         routeElement: <Projeler />,
@@ -41,22 +23,22 @@ export const routes = [
         pageName: "Referanslar"
     },
     {
-        routePath: "/ticari-bilgiler",
-        routeElement: <TicariBilgiler />,
-        pageName: "Ticari Bilgiler"
-    },
-    {
         routePath: "/iletisim",
         routeElement: <Iletisim />,
         pageName: "İletişim"
     },
+    {
+        routePath: "/uyeler",
+        routeElement: <Uyeler />,
+        pageName: "Uyeler"
+    }
 ];
 
 
 export const router = createBrowserRouter(
     createRoutesFromElements(
         <Route>
-            <Route path="/" element={ <Anasayfa /> } />
+            <Route path="/" element={<Anasayfa />} />
 
             {routes.map((routeItem) => (
                 <Route key={routeItem.routePath} path={routeItem.routePath} element={routeItem.routeElement} />
