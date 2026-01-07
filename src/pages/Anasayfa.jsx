@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 // Styles
 import styles from "../styles/page_styles/Anasayfa.module.scss";
@@ -8,11 +8,20 @@ import Navbar from '../components/shared_components/Navbar';
 import AboutSection from "../components/AnasayfaComponents/AboutSection"
 import Footer from '../components/shared_components/Footer';
 
-//Assets
+// Assets
 import landingVideo from "../assets/logoAnimation.webm"
+
+// Functions
+import { findCurrentPage } from '../functions/FindCurrentPage';
 
 
 const Anasayfa = () => {
+
+    useEffect(() => {
+        findCurrentPage();
+    }, [])
+
+    
     return (
         <div className={`${styles.Anasayfa}`}>
             <Navbar />
