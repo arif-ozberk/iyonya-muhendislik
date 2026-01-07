@@ -34,11 +34,14 @@ const Footer = () => {
                     <Link key={routeItem.routePath} to={routeItem.routePath}>{routeItem.pageName}</Link>
                 ))}
             </ul>
-            <ul className={styles.socialMediaLinks}>
-                {socialMedia.map((media, id) => (
-                    <a key={id} href={media.url}>{media.icon}</a>
-                ))}
-            </ul>
+            <div className={styles.footerRight}>
+                <ul className={styles.socialMediaLinks}>
+                    {socialMedia.map((media, id) => (
+                        <a key={id} href={media.url}>{media.icon}</a>
+                    ))}
+                </ul>
+                <p className={styles.copyrightText}>Copyright © 2026 - İyonya Mühendislik</p>
+            </div>
         </div>
     );
 }
