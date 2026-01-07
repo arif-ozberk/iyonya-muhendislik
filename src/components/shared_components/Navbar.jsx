@@ -5,6 +5,7 @@ import styles from "../../styles/sharedComponents_styles/Navbar.module.scss";
 
 // React-Router
 import { Link } from 'react-router';
+import { routes } from '../../routes/routes';
 
 // Components
 import Logo from './Logo';
@@ -47,11 +48,16 @@ const Navbar = () => {
                         opacity: isNavlinksOpen ? "1" : ""
                     }}
                 >
-                    <li><Link to="/" >Anasayfa</Link></li>
-                    <li><Link to="/projeler" >Projeler</Link></li>
-                    <li><Link to="/referanslar" >Referanslar</Link></li>
-                    <li><Link to="/iletisim" >İletişim</Link></li>
-                    <li><Link to="/uyeler" >Üyeler</Link></li>
+                    {routes.map((routeItem, index) => (
+                        <Link
+                            key={routeItem.routePath}
+                            to={routeItem.routePath}
+                            style={{ animationDelay: isNavlinksOpen ? `${(index * 0.1) + 0.1}s` : "" }}
+                            className={isNavlinksOpen ? styles.navLinksActive : ""}
+                        >
+                            {routeItem.pageName}
+                        </Link>
+                    ))}
                 </ul>
             </section>
 
