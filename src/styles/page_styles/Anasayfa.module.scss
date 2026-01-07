@@ -18,17 +18,63 @@
         .aboutSectionContainer {
             width: 100%;
             @include flex-center;
-        }
-        
-        .mapChartSectionContainer {
-            background-color: red;
-            padding: 2rem;
-    
-            .map {
-                width: 100%;
-                height: 40rem;
-                background-color: yellowgreen;
+            gap: 16rem;
+            text-align: center;
+
+            .aboutSectionLogo {
+                height: 10rem;
             }
+
+            .aboutTextContainer {
+                display: flex;
+                flex-direction: column;
+                gap: 2rem;
+                align-items: center;
+
+                p {
+                    line-height: 2rem;
+                    text-align: start;
+                }
+
+                .portfolioLinkButton {
+                    position: relative;
+                    width: 18rem;
+                    height: 3rem;
+                    font-size: 1rem;
+                    background-color: $black;
+                    color: $white !important;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-weight: 400;
+                    z-index: 1;
+                }
+
+                .portfolioLinkButton::before {
+                    display: block;
+                    position: absolute;
+                    content: "";
+                    width: 0;
+                    height: 100%;
+                    top: 0;
+                    right: 0;
+                    z-index: -1;
+                    background-color: $orange-main;
+                    transition: all 0.3s ease;
+                }
+
+                .portfolioLinkButton:hover::before {
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+        }
+
+        .mapChartSectionContainer {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
         }
 
         .statSectionContainer {
