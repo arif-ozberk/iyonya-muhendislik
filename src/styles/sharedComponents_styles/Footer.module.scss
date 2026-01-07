@@ -3,7 +3,7 @@
 
 .Footer {
     min-height: 10rem;
-    background-color: rgb(0, 0, 0);
+    background-color: $black;
     @include flex-space-between;
     padding: 2rem $inlinePadding;
 
@@ -39,6 +39,7 @@
 
         a {
             font-size: 0.8rem;
+            color: $white;
 
             @media(max-width: 425px) {
                 font-size: 10px;
@@ -74,6 +75,10 @@
             a {
                 display: flex;
                 font-size: 1rem;
+
+                svg {
+                    fill: $white;
+                }
             }
         }
 

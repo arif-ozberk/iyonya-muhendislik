@@ -6,6 +6,7 @@
 
 $black: #000000;
 $white: #ffffff;
+$orange-main: #e87920;
 $dark-main: #111111;
 $dark-faded: #272727;
 $dark-hover: #2c2c2c;
@@ -38,11 +39,11 @@ $inlinePadding: 4rem;
     box-sizing: border-box;
     font-family: "Montserrat", sans-serif;
     scroll-behavior: smooth;
-    color: $white;
+    color: $black;
 }
 
 body {
-    background-color: $dark-main;
+    background-color: $white;
 }
 
 ul {
@@ -89,7 +90,7 @@ span {
 .App {
     min-height: 100vh;
     overflow: hidden;
-    background-color: $dark-main;
+    background-color: $white;
 }
 
 ::-webkit-scrollbar {
