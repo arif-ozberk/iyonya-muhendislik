@@ -13,6 +13,11 @@ import Uyeler from "../pages/Uyeler";
 
 export const routes = [
     {
+        routePath: "/",
+        routeElement: <Anasayfa />,
+        pageName: "Anasayfa"
+    },
+    {
         routePath: "/projeler",
         routeElement: <Projeler />,
         pageName: "Projeler"
@@ -30,7 +35,7 @@ export const routes = [
     {
         routePath: "/uyeler",
         routeElement: <Uyeler />,
-        pageName: "Uyeler"
+        pageName: "Üyeler"
     }
 ];
 
@@ -38,7 +43,6 @@ export const routes = [
 export const router = createBrowserRouter(
     createRoutesFromElements(
         <Route>
-            <Route path="/" element={<Anasayfa />} />
 
             {routes.map((routeItem) => (
                 <Route key={routeItem.routePath} path={routeItem.routePath} element={routeItem.routeElement} />
