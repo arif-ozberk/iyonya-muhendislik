@@ -153,6 +153,24 @@ span {
     }
 }
 
+::-webkit-scrollbar {
+    width: 0.4rem;
+    position: absolute;
+    background-color: transparent;
+
+}
+
+::-webkit-scrollbar-track {
+    margin-top: 4rem;
+    margin-bottom: 10px;
+    height: 100%;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: $orange-main;
+}
+
+
 
 
 // Animations

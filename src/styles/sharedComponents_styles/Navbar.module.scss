@@ -37,6 +37,7 @@
                 opacity: 0;
                 transition: transform 0.4s ease, opacity 0.4s ease;
                 z-index: -9;
+                box-shadow: rgba(149, 157, 165, 0.2) 0px 4px 12px;
             }
 
             a {
@@ -45,9 +46,15 @@
                 font-size: 0.8rem;
                 font-weight: 500;
                 color: $dark-faded;
+                transition: 0.4s ease;
 
                 @media(max-width: 768px) {
                     opacity: 0;
+                }
+
+                &:hover {
+                    color: $orange-main;
+                    scale: 1.1;
                 }
             }
 
@@ -62,12 +69,19 @@
 
         .dropdownButton {
             display: none;
-            transition: transform 0.3s ease;
+            transition: 0.3s ease;
             cursor: pointer;
             fill: $dark-faded;
 
+
             @media(max-width: 768px) {
                 display: flex;
+            }
+
+            &:hover {
+                color: $orange-main;
+                fill: $orange-main;
+                scale: 1.1;
             }
         }
     }
