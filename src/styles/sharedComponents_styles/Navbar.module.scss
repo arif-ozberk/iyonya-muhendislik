@@ -9,6 +9,7 @@
     min-height: 4rem;
     display: flex;
     align-items: center;
+    justify-content: space-between;
     position: fixed;
     padding-inline: $inlinePadding;
     z-index: 10;
@@ -21,15 +22,63 @@
             display: flex;
             column-gap: 1.5rem;
 
+            @media(max-width: 768px) {
+                background-color: #ffffff7e;
+                position: absolute;
+                width: 100%;
+                top: 0;
+                left: 0;
+                flex-direction: column;
+                align-items: center;
+                row-gap: 1.5rem;
+                padding-block: 1.5rem;
+                transform: translateY(calc(-100%));
+                opacity: 0;
+                transition: transform 0.4s ease, opacity 0.4s ease;
+                z-index: -9;
+            }
 
             a {
                 display: flex;
                 align-items: center;
                 font-size: 0.8rem;
                 font-weight: 500;
+
+                @media(max-width: 768px) {
+                    opacity: 0;
+                }
             }
 
-
+            .navLinksActive {
+                animation: slideFadeIn 0.8s ease forwards;
+            }
         }
+    }
+
+    .navRight {
+        display: flex;
+
+        .dropdownButton {
+            display: none;
+            transition: transform 0.3s ease;
+            cursor: pointer;
+
+            @media(max-width: 768px) {
+                display: flex;
+            }
+        }
+    }
+}
+
+
+@keyframes slideFadeIn {
+    from {
+        opacity: 0;
+        transform: translateX(-4rem);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }

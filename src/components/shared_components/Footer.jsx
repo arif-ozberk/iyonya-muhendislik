@@ -31,7 +31,7 @@ const Footer = () => {
             <Logo />
             <ul className={styles.navLinks}>
                 {routes.map((routeItem) => (
-                    <Link to={routeItem.routePath}>{routeItem.pageName}</Link>
+                    <Link key={routeItem.routePath} to={routeItem.routePath}>{routeItem.pageName}</Link>
                 ))}
             </ul>
             <ul className={styles.socialMediaLinks}>
