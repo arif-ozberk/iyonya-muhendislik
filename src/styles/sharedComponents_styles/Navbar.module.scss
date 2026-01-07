@@ -11,6 +11,7 @@
     align-items: center;
     position: fixed;
     padding-inline: $inlinePadding;
+    z-index: 10;
 
     .navLeft {
         display: flex;
@@ -20,14 +21,12 @@
             display: flex;
             column-gap: 1.5rem;
 
-            li {
+
+            a {
                 display: flex;
                 align-items: center;
-
-                a {
-                    font-size: 0.8rem;
-                    font-weight: 500;
-                }
+                font-size: 0.8rem;
+                font-weight: 500;
             }
 
 

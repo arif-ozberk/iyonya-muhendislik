@@ -5,6 +5,7 @@ import styles from "../../styles/sharedComponents_styles/Navbar.module.scss";
 
 // React-Router
 import { Link } from 'react-router';
+import { routes } from '../../routes/routes';
 
 // Components
 import Logo from './Logo';
@@ -19,11 +20,9 @@ const Navbar = () => {
                 <Logo logoHeight={"3rem"} />
 
                 <ul className={styles.navLinks}>
-                    <li><Link to="/" >Anasayfa</Link></li>
-                    <li><Link to="/projeler" >Projeler</Link></li>
-                    <li><Link to="/referanslar" >Referanslar</Link></li>
-                    <li><Link to="/iletisim" >İletişim</Link></li>
-                    <li><Link to="/uyeler" >Üyeler</Link></li>
+                    {routes.map((routeItem) => (
+                        <Link to={routeItem.routePath}>{routeItem.pageName}</Link>
+                    ))}
                 </ul>
             </section>
 
