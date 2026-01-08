@@ -27,6 +27,14 @@
         display: flex;
         column-gap: 2rem;
 
+        .logoImage {
+            display: flex;
+            
+            img {
+                height: 3rem;
+            }
+        }
+
         .navLinks {
             display: flex;
             column-gap: 1.5rem;

@@ -10,19 +10,24 @@
 
     .anasayfaContext {
         padding-inline: $inlinePadding;
-
-        @media(max-width: 1024px) {
-            padding-inline: 2rem;
-        }
-
-        @media(max-width: 768px) {
-            padding-inline: 1rem;
-        }
-
         display: flex;
         flex-direction: column;
         row-gap: 5rem;
         margin: 5rem 0rem;
+
+        @media(max-width: 1024px) {
+            padding-inline: 2rem;
+            row-gap: 4rem;
+            margin: 4rem 0;
+        }
+
+        @media(max-width: 768px) {
+            padding-inline: 1rem;
+            row-gap: 3rem;
+            margin: 3rem 0;
+        }
+
+        
 
         .aboutSectionContainer {
             width: 100%;
@@ -41,10 +46,6 @@
 
             .aboutSectionLogo {
                 height: 10rem;
-
-                // @media(max-width: 570px) {
-                //     display: none;
-                // }
             }
 
             .aboutTextContainer {
@@ -238,5 +239,73 @@
                 }
             }
         }
+
+        .referanslarSectionContainer {
+            display: flex;
+            flex-direction: column;
+            row-gap: 1rem;
+
+            h1 {
+                font-size: 28px;
+                font-weight: 600;
+
+                @media(max-width: 1024px) {
+                    font-size: 22px;
+                }
+            }
+
+            .sliderContainer {
+                overflow: hidden;
+                width: 100%;
+                position: relative;
+                padding: 20px 0;
+                border-bottom: 2px solid $orange-main;
+                border-top: 2px solid $orange-main;
+
+                .sliderTrack {
+                    display: flex;
+                    width: max-content;
+                    animation: scrollRightToLeft 30s linear infinite;
+            
+                    &:hover {
+                        animation-play-state: paused;
+                    }
+
+                    .slide {
+                        width: 150px;
+                        margin: 0 20px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+
+                        @media (max-width: 768px) {
+                            width: 100px;
+                            margin: 0 10px;
+                        }
+
+                        @media (max-width: 520px) {
+                            width: 70px;
+                        }
+
+                        img {
+                            max-width: 100%;
+                            height: auto;
+                            object-fit: contain;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+@keyframes scrollRightToLeft {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
     }
 }
