@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
 // Styles
 import styles from "../../styles/page_styles/Anasayfa.module.scss";
@@ -27,16 +27,67 @@ const StatSection = () => {
             statImage: <HiUserGroup />,
             statNumber: 25
         }
-    ]
+    ];
 
+    const [counts, setCounts] = useState(stats.map(() => 0));
 
+    const statRefs = useRef([]);
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        const index = parseInt(entry.target.getAttribute('data-index'));
+                        const endNumber = stats[index].statNumber;
+                        const duration = 2000;
+                        let startTimestamp = null;
+
+                        const step = (timestamp) => {
+                            if (!startTimestamp) startTimestamp = timestamp;
+                            const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+
+                            setCounts((prevCounts) => {
+                                const newCounts = [...prevCounts];
+                                newCounts[index] = Math.floor(progress * endNumber);
+                                return newCounts;
+                            });
+
+                            if (progress < 1) {
+                                window.requestAnimationFrame(step);
+                            }
+                        };
+
+                        window.requestAnimationFrame(step);
+
+                        observer.unobserve(entry.target);
+                    }
+                });
+            },
+            { threshold: 0.3 }
+        );
+
+        statRefs.current.forEach((el) => {
+            if (el) observer.observe(el);
+        });
+
+        return () => {
+            observer.disconnect();
+        };
+    }, []);
 
     return (
         <section className={styles.statSectionContainer}>
             {stats.map((statItem, index) => (
-                <div key={index} className={styles.stat}>
+                <div
+                    key={index}
+                    className={styles.stat}
+                    data-index={index}
+                    ref={(el) => (statRefs.current[index] = el)}
+                >
                     {statItem.statImage}
-                    <p><span>{statItem.statNumber}</span> {statItem.statTitle}</p>
+                    <h2>{counts[index]}</h2>
+                    <p>{statItem.statTitle}</p>
                 </div>
             ))}
         </section>

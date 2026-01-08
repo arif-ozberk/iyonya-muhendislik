@@ -131,6 +131,15 @@ span {
 
 .context-wrapper {
     padding-top: 4rem;
+    padding-inline: $inlinePadding;
+
+    @media(max-width: 1024px) {
+        padding-inline: 2rem;
+    }
+
+    @media(max-width: 768px) {
+        padding-inline: 1rem;
+    }
 }
 
 .title-main {

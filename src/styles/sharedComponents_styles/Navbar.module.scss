@@ -15,6 +15,14 @@
     z-index: 10;
     box-shadow: rgba(149, 157, 165, 0.2) 0px 4px 12px;
 
+    @media(max-width: 1024px) {
+        padding-inline: 2rem;
+    }
+
+    @media(max-width: 768px) {
+        padding-inline: 1rem;
+    }
+
     .navLeft {
         display: flex;
         column-gap: 2rem;
@@ -46,7 +54,7 @@
                 font-size: 0.8rem;
                 font-weight: 500;
                 color: $dark-faded;
-                transition: 0.4s ease;
+                transition: 0.3s ease;
 
                 @media(max-width: 768px) {
                     opacity: 0;
@@ -81,7 +89,6 @@
             &:hover {
                 color: $orange-main;
                 fill: $orange-main;
-                scale: 1.1;
             }
         }
     }
