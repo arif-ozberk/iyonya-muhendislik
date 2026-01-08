@@ -1,4 +1,100 @@
 @use "../globals.scss" as *;
 
 
-.Uyeler {}
+.Uyeler {
+    min-height: calc(100vh - 4rem);
+    display: flex;
+    flex-direction: column;
+    padding-top: 2rem;
+
+    @media(max-width: 768px) {
+        padding-top: 1.6rem;
+    }
+
+    @media(max-width: 520px) {
+        padding-top: 1.2rem;
+    }
+
+    .pageTitle {
+        font-size: 2rem;
+        font-weight: 600;
+
+        @media(max-width: 768px) {
+            margin-bottom: 1.6rem;
+        }
+
+        @media(max-width: 520px) {
+            margin-bottom: 1.2rem;
+            font-size: 1.6rem;
+        }
+    }
+
+    .uyelerContainer {
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        flex: 1;
+
+        @media(max-width: 1024px) {
+            justify-content: space-between;
+        }
+
+        @media(max-width: 768px) {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .uyeCard {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            row-gap: 0.4rem;
+
+            @media(max-width: 1024px) {
+                width: 14rem;
+            }
+
+            @media(max-width: 520px) {
+                width: 100%;
+            }
+
+            h2 {
+                font-size: 1.3rem;
+                font-weight: 600;
+                text-align: center;
+
+                @media(max-width: 1024px) {
+                    font-size: 1.1rem;
+                }
+
+                @media(max-width: 520px) {
+                    font-size: 1rem;
+                }
+            }
+
+            h3 {
+                font-size: 1rem;
+                font-weight: 400;
+
+                @media(max-width: 1024px) {
+                    font-size: 0.8rem;
+                }
+            }
+
+            ul {
+                display: flex;
+                column-gap: 0.8rem;
+
+                svg {
+                    font-size: 1rem;
+                    transition: fill 0.3s ease;
+
+                    &:hover {
+                        fill: $orange-main;
+                    }
+                }
+            }
+        }
+    }
+}
