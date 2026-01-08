@@ -8,6 +8,7 @@ import Navbar from '../components/shared_components/Navbar';
 import AboutSection from "../components/AnasayfaComponents/AboutSection"
 import MapChartSection from '../components/AnasayfaComponents/MapChartSection';
 import StatSection from '../components/AnasayfaComponents/StatSection';
+import ReferanslarSection from '../components/AnasayfaComponents/ReferanslarSection';
 import Footer from '../components/shared_components/Footer';
 
 // Assets
@@ -32,6 +33,7 @@ const Anasayfa = () => {
                 <AboutSection />
                 <MapChartSection />
                 <StatSection />
+                <ReferanslarSection />
             </div>
             <Footer />
         </div>

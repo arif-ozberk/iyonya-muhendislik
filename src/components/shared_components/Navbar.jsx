@@ -13,6 +13,9 @@ import Logo from './Logo';
 // React-Icons
 import { FaChevronDown } from "react-icons/fa6";
 
+// Assets
+import logoImage from "../../assets/iyonya-muhendislik-logo-woText.svg";
+
 
 const Navbar = () => {
 
@@ -39,7 +42,9 @@ const Navbar = () => {
     return (
         <nav className={styles.Navbar} ref={navbarRef}>
             <section className={styles.navLeft}>
-                <Logo logoHeight={"3rem"} />
+                <Link to="/" className={styles.logoImage}>
+                    <img src={logoImage} alt="iyonya-muhendislik-logo" />
+                </Link>
 
                 <ul
                     className={styles.navLinks}
