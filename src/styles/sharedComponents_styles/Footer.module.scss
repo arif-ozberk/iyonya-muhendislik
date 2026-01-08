@@ -40,7 +40,7 @@
         a {
             font-size: 0.8rem;
             color: $white;
-            transition: 0.4s ease;
+            transition: 0.3s ease;
 
             @media(max-width: 425px) {
                 font-size: 10px;
@@ -84,7 +84,7 @@
 
                 svg {
                     fill: $white;
-                    transition: 0.2s ease;
+                    transition: 0.3s ease;
 
                     &:hover {
                         fill: $orange-main;

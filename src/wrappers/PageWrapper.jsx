@@ -19,9 +19,11 @@ const PageWrapper = ({ children }) => {
 
 
     return (
-        <div className={`context-wrapper`}>
+        <div>
             <Navbar />
-            {children}
+            <div className={`context-wrapper`}>
+                {children}
+            </div>
             <Footer />
         </div>
     );

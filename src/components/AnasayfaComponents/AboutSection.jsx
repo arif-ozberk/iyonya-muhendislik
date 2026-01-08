@@ -11,10 +11,10 @@ const AboutSection = () => {
             <img className={styles.aboutSectionLogo} src={randomImage} alt="" />
             <div className={styles.aboutTextContainer}>
                 <h1>İYONYA MÜHENDİSLİK</h1>
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis rerum, vero totam ipsa illum tenetur recusandae veniam iste saepe cum doloremque, maiores ex nisi voluptatibus assumenda est quasi? Aspernatur, expedita? <br></br>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis rerum, vero totam ipsa illum tenetur recusandae veniam iste saepe cum doloremque, maiores ex nisi voluptatibus assumenda est quasi? Aspernatur, expedita?
-                </p>
+                <div className={styles.aboutText}>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis rerum, vero totam ipsa illum tenetur recusandae veniam iste saepe cum doloremque, maiores ex nisi voluptatibus assumenda est quasi? Aspernatur, expedita?</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis rerum, vero totam ipsa illum tenetur recusandae veniam iste saepe cum doloremque, maiores ex nisi voluptatibus assumenda est quasi? Aspernatur, expedita?</p>
+                </div>
                 <Link className={styles.portfolioLinkButton} to={"/projeler"}>PROJELERİMİZE GÖZ ATIN</Link>
             </div>
         </section>
