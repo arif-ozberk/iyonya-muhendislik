@@ -19,8 +19,8 @@ const Uyeler = () => {
 
     const uyeData = [
         {
-            name: "TUNAY EKİN TUNÇER",
-            title: "DÜŞÜN EMEKÇİSİ",
+            name: "ÜYE 1",
+            title: "MÜHENDİS",
             image: randomImage,
             social: {
                 linkedin: "https://www.linkedin.com",
@@ -29,7 +29,7 @@ const Uyeler = () => {
             }
         },
         {
-            name: "ARİF ÖZBERK AZMAK",
+            name: "ÜYE 2",
             title: "SAHA UZMANI",
             image: randomImage,
             social: {
@@ -38,7 +38,7 @@ const Uyeler = () => {
                 instagram: "https://www.instagram.com"
             }
         }, {
-            name: "ANDERSON TALİSCA",
+            name: "ÜYE 3",
             title: "TASARIM UZMANI",
             image: randomImage,
             social: {

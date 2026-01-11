@@ -5,6 +5,7 @@ import "../styles/globals.scss";
 
 // Components
 import Navbar from '../components/shared_components/Navbar';
+import ScrollToTopButton from '../components/shared_components/ScrollToTopButton';
 import Footer from '../components/shared_components/Footer';
 
 // Functions
@@ -24,6 +25,7 @@ const PageWrapper = ({ children }) => {
             <div className={`context-wrapper`}>
                 {children}
             </div>
+            <ScrollToTopButton />
             <Footer />
         </div>
     );

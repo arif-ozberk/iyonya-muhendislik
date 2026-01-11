@@ -9,15 +9,18 @@ import { RouterProvider } from 'react-router';
 
 // Context
 import { UIContextProvider } from './context/UIContext';
+import { ProjectContextProvider } from './context/ProjectContext';
 
 
 const App = () => {
 
 	return (
 		<UIContextProvider>
-			<div className={`App`}>
-				<RouterProvider router={router} />
-			</div>
+			<ProjectContextProvider>
+				<div className={`App`}>
+					<RouterProvider router={router} />
+				</div>
+			</ProjectContextProvider>
 		</UIContextProvider>
 	);
 }

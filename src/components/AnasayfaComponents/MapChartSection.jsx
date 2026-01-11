@@ -96,7 +96,7 @@ const MapChartSection = () => {
                                 strokeWidth={1}
                                 style={{
                                     default: { outline: "none" },
-                                    hover: { fill: "#e7a72e", outline: "none" },
+                                    hover: { fill: "#e7a62e81", outline: "none" },
                                     pressed: { outline: "none" }
                                 }}
                             />
