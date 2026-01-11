@@ -82,8 +82,8 @@ const MapChartSection = () => {
                 width={800}
                 height={400}
                 projection="geoMercator"
-                projectionConfig={{ scale: 2200, center: [35, 38.5] }}
-                style={{ width: "100%", height: "auto" }}
+                projectionConfig={{ scale: 2200, center: [35, 39.05] }}
+                style={{ width: "100%", height: "auto", display: "flex", alignItems: "center", }}
             >
                 <Geographies geography={TURKEY_TOPO_URL}>
                     {({ geographies }) =>
@@ -91,12 +91,12 @@ const MapChartSection = () => {
                             <Geography
                                 key={geo.rsmKey}
                                 geography={geo}
-                                fill="#F5F5F7"
-                                stroke="#D1D1D1"
-                                strokeWidth={0.5}
+                                fill="transparent"
+                                stroke="#000000"
+                                strokeWidth={1}
                                 style={{
                                     default: { outline: "none" },
-                                    hover: { fill: "#EAEAEA", outline: "none" },
+                                    hover: { fill: "#e7a72e", outline: "none" },
                                     pressed: { outline: "none" }
                                 }}
                             />
