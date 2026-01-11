@@ -5,7 +5,7 @@
 // Color Palette
 
 $black: #000000;
-$white: #ffffff;
+$white: #fcfae7;
 $orange-main: #e87920;
 $dark-main: #111111;
 $dark-faded: #272727;
@@ -77,14 +77,11 @@ textarea {
     }
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-p,
-span {
+img,
+i,
+svg {
     user-select: none;
+    -webkit-user-drag: none;
 }
 
 .App {
@@ -105,7 +102,7 @@ span {
 
 ::-webkit-scrollbar-track {
     // background-color: $dark-faded;
-    background-color: transparent;
+    background-color: $white;
 }
 
 

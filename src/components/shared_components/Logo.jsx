@@ -4,7 +4,7 @@ import React from 'react';
 import { Link } from 'react-router';
 
 // Assets
-import logoImage from "../../assets/iyonya-muhendislik-logo.png";
+import logoImage from "../../assets/iyonya-muhendislik-logo-beyaz.png";
 
 
 const Logo = ({ logoWidth, logoHeight }) => {
