@@ -64,7 +64,7 @@ button {
 }
 
 input {
-    color: $white;
+    outline: none;
 
     &:focus {
         outline: none;

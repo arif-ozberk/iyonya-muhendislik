@@ -1,0 +1,50 @@
+@use "../globals.scss" as *;
+
+.scrollButton {
+    display: none;
+    position: fixed;
+    align-items: center;
+    justify-content: center;
+    bottom: 2rem;
+    right: 0.5rem;
+    width: 3rem;
+    aspect-ratio: 1;
+    background-color: $black;
+    border: none;
+    transition: 0.4s ease;
+    cursor: pointer;
+    z-index: 99;
+
+    @media (max-width: 768px) {
+        width: 2rem;
+        font-size: 0.5rem;
+    }
+}
+
+.scrollButton svg {
+    scale: 1.75;
+    transition: 0.2s ease;
+    fill: $white;
+}
+
+.scrollButton:hover {
+    background-color: $orange-main;
+}
+
+.scrollButton:hover>svg {
+    /* animation: jump 0.75s infinite ease-in; */
+    display: block;
+    margin-bottom: 25%;
+}
+
+@keyframes jump {
+    0% {
+        margin-bottom: 0;
+        /* scale: 1.5; */
+    }
+
+    100% {
+        margin-bottom: 0.75rem;
+        /* scale: 2; */
+    }
+}

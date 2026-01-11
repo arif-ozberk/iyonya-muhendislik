@@ -9,6 +9,7 @@ import AboutSection from "../components/AnasayfaComponents/AboutSection"
 import MapChartSection from '../components/AnasayfaComponents/MapChartSection';
 import StatSection from '../components/AnasayfaComponents/StatSection';
 import ReferanslarSection from '../components/AnasayfaComponents/ReferanslarSection';
+import ScrollToTopButton from '../components/shared_components/ScrollToTopButton';
 import Footer from '../components/shared_components/Footer';
 
 // Assets
@@ -24,7 +25,7 @@ const Anasayfa = () => {
         findCurrentPage();
     }, [])
 
-    
+
     return (
         <div className={`${styles.Anasayfa}`}>
             <Navbar />
@@ -33,6 +34,7 @@ const Anasayfa = () => {
                 <AboutSection />
                 <MapChartSection />
                 <StatSection />
+                <ScrollToTopButton />
                 <ReferanslarSection />
             </div>
             <Footer />
