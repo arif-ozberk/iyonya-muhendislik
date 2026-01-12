@@ -92,7 +92,7 @@ const MapChartSection = () => {
                                 key={geo.rsmKey}
                                 geography={geo}
                                 fill="transparent"
-                                stroke="#000000"
+                                stroke="#5c3838"
                                 strokeWidth={1}
                                 style={{
                                     default: { outline: "none" },
@@ -103,10 +103,9 @@ const MapChartSection = () => {
                         ))
                     }
                 </Geographies>
-
                 {/* Animated Arcs */}
                 {DESTINATIONS.map((dest, i) => (
-                    <Line key={`line-${i}`} from={IZMIR_COORDS} to={dest.coords}>
+                    <Line key={`line-wrapper-${i}`} from={IZMIR_COORDS} to={dest.coords}>
                         {({ path }) => {
                             const parts = path.split(/[ML, ]+/).filter(Boolean);
                             if (parts.length < 4) return null;
@@ -119,16 +118,27 @@ const MapChartSection = () => {
                             const midX = (x1 + x2) / 2;
                             const midY = (y1 + y2) / 2 - 50;
 
+                            const curvePath = `M ${x1},${y1} Q ${midX},${midY} ${x2},${y2}`;
+
                             return (
                                 <motion.path
-                                    d={`M ${x1},${y1} Q ${midX},${midY} ${x2},${y2}`}
+                                    key={`path-${i}`} // Unique key forces a fresh mount/animation
+                                    d={curvePath}
                                     fill="none"
-                                    stroke="#A81D1D"
-                                    strokeWidth={2.5}
-                                    strokeLinecap="round"
+                                    stroke={accentColor}
                                     initial={{ pathLength: 0, opacity: 0 }}
                                     animate={{ pathLength: 1, opacity: 0.8 }}
-                                    transition={{ duration: 1.5, delay: i * 0.4 }}
+                                    transition={{
+                                        duration: 2,
+                                        delay: i * 0.5,
+                                        ease: "easeInOut"
+                                    }}
+                                    style={{
+                                        // This forces the width to be 3px regardless of map zoom
+                                        strokeWidth: "3px",
+                                        vectorEffect: "non-scaling-stroke",
+                                        pointerEvents: "none"
+                                    }}
                                 />
                             );
                         }}

@@ -81,6 +81,19 @@
             }
         }
 
+        .cityOptionsContainer {
+            height: 2rem;
+            min-width: 12rem;
+            background: transparent;
+            border: 1px solid $black;
+            transition: 0.4s ease;
+
+            option {
+                background: transparent;
+            }
+
+        }
+
     }
 
 
@@ -117,6 +130,7 @@
 
                 &:hover {
                     filter: none;
+                    scale: 1.05;
                 }
             }
 

@@ -40,7 +40,7 @@ const Footer = () => {
                         <a key={id} href={media.url}>{media.icon}</a>
                     ))}
                 </ul>
-                <p className={styles.copyrightText}>Copyright © 2026 - İyonya Mühendislik</p>
+                <p className={styles.copyrightText}>Copyright © 2026 - CADANCE DESIGN STUDIO</p>
             </div>
         </div>
     );
