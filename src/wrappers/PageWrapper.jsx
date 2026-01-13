@@ -16,6 +16,8 @@ const PageWrapper = ({ children }) => {
 
     useEffect(() => {
         findCurrentPage();
+
+        window.scrollTo(0, 0);
     }, []);
 
 

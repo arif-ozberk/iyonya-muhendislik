@@ -23,6 +23,8 @@ const Anasayfa = () => {
 
     useEffect(() => {
         findCurrentPage();
+        
+        window.scrollTo(0, 0);
     }, [])
 
 
