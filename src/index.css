@@ -1,3 +1,9 @@
 :root {
     --accentColor: #e87920;
 }
+
+* {
+
+    ::selection {
+        background-color: var(--accentColor);
+    }
