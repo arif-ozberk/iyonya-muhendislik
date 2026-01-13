@@ -1,6 +1,6 @@
-import React, { useState } from "react";
-import { ComposableMap, Geographies, Geography, Line, Marker } from "react-simple-maps";
-import { motion, AnimatePresence } from "framer-motion";
+import React, { useState, useRef } from "react";
+import { ComposableMap, Geographies, Geography, Marker, useMapContext } from "react-simple-maps";
+import { motion, AnimatePresence, useInView } from "motion/react"
 import trJson from "../../data/tr.json";
 import styles from "../../styles/page_styles/Anasayfa.module.scss";
 
@@ -11,10 +11,10 @@ const DESTINATIONS = [
     { name: "Ankara", coords: [32.85, 39.93] },
     { name: "Van", coords: [43.38, 38.49] },
     { name: "Konya", coords: [32.48, 37.87] },
+    { name: "Trazbon", coords: [39.79, 40.81] }
 ];
 
 const accentColor = window.getComputedStyle(document.documentElement).getPropertyValue('--accentColor');
-
 
 // Reusable City Marker Component with Hover Effect
 const CityMarker = ({ coordinates, name, isSource = false }) => {
@@ -75,9 +75,52 @@ const CityMarker = ({ coordinates, name, isSource = false }) => {
     );
 };
 
-const MapChartSection = () => {
+// Component that has access to the map projection
+const AnimatedLines = ({ isInView }) => {
+    const { projection } = useMapContext();
+
     return (
-        <section className={styles.mapChartSectionContainer}>
+        <>
+            {DESTINATIONS.map((dest, i) => {
+                // Use the map's projection
+                const [x1, y1] = projection(IZMIR_COORDS);
+                const [x2, y2] = projection(dest.coords);
+
+                const midX = (x1 + x2) / 2;
+                const midY = (y1 + y2) / 2 - 30;
+
+                const curvePath = `M ${x1},${y1} Q ${midX},${midY} ${x2},${y2}`;
+
+                return (
+                    <motion.path
+                        key={`path-${i}`}
+                        d={curvePath}
+                        fill="none"
+                        stroke="black"
+                        strokeWidth={2}
+                        initial={{ pathLength: 0, opacity: 0 }}
+                        animate={isInView ? { pathLength: 1, opacity: 1 } : { pathLength: 0, opacity: 0 }}
+                        transition={{
+                            duration: 2,
+                            delay: i * 0.5,
+                            ease: "easeInOut"
+                        }}
+                    />
+                );
+            })}
+        </>
+    );
+};
+
+const MapChartSection = () => {
+    const ref = useRef(null);
+    const isInView = useInView(ref, {
+        once: true, // Animation triggers only once
+        amount: 0.3 // Trigger when 30% of element is visible
+    });
+
+    return (
+        <section ref={ref} className={styles.mapChartSectionContainer}>
             <ComposableMap
                 width={800}
                 height={400}
@@ -92,7 +135,7 @@ const MapChartSection = () => {
                                 key={geo.rsmKey}
                                 geography={geo}
                                 fill="transparent"
-                                stroke="#5c3838"
+                                stroke="#000000"
                                 strokeWidth={1}
                                 style={{
                                     default: { outline: "none" },
@@ -103,47 +146,9 @@ const MapChartSection = () => {
                         ))
                     }
                 </Geographies>
-                {/* Animated Arcs */}
-                {DESTINATIONS.map((dest, i) => (
-                    <Line key={`line-wrapper-${i}`} from={IZMIR_COORDS} to={dest.coords}>
-                        {({ path }) => {
-                            const parts = path.split(/[ML, ]+/).filter(Boolean);
-                            if (parts.length < 4) return null;
 
-                            const x1 = parseFloat(parts[0]);
-                            const y1 = parseFloat(parts[1]);
-                            const x2 = parseFloat(parts[2]);
-                            const y2 = parseFloat(parts[3]);
-
-                            const midX = (x1 + x2) / 2;
-                            const midY = (y1 + y2) / 2 - 50;
-
-                            const curvePath = `M ${x1},${y1} Q ${midX},${midY} ${x2},${y2}`;
-
-                            return (
-                                <motion.path
-                                    key={`path-${i}`} // Unique key forces a fresh mount/animation
-                                    d={curvePath}
-                                    fill="none"
-                                    stroke={accentColor}
-                                    initial={{ pathLength: 0, opacity: 0 }}
-                                    animate={{ pathLength: 1, opacity: 0.8 }}
-                                    transition={{
-                                        duration: 2,
-                                        delay: i * 0.5,
-                                        ease: "easeInOut"
-                                    }}
-                                    style={{
-                                        // This forces the width to be 3px regardless of map zoom
-                                        strokeWidth: "3px",
-                                        vectorEffect: "non-scaling-stroke",
-                                        pointerEvents: "none"
-                                    }}
-                                />
-                            );
-                        }}
-                    </Line>
-                ))}
+                {/* Animated Arcs - using map's projection */}
+                <AnimatedLines isInView={isInView} />
 
                 {/* Starting Point Marker */}
                 <CityMarker coordinates={IZMIR_COORDS} name="İzmir" isSource={true} />
