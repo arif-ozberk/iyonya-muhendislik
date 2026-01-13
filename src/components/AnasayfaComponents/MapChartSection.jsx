@@ -1,6 +1,8 @@
-import React, { useState, useRef } from "react";
+import React, { useContext, useState, useRef } from "react";
+import { Link } from "react-router";
 import { ComposableMap, Geographies, Geography, Marker, useMapContext } from "react-simple-maps";
 import { motion, AnimatePresence, useInView } from "motion/react"
+import { ProjectContext } from "../../context/ProjectContext";
 import trJson from "../../data/tr.json";
 import styles from "../../styles/page_styles/Anasayfa.module.scss";
 
@@ -14,10 +16,12 @@ const DESTINATIONS = [
     { name: "Trazbon", coords: [39.79, 40.81] }
 ];
 
+
+
 const accentColor = window.getComputedStyle(document.documentElement).getPropertyValue('--accentColor');
 
 // Reusable City Marker Component with Hover Effect
-const CityMarker = ({ coordinates, name, isSource = false }) => {
+const CityMarker = ({ coordinates, name, isSource = false, onClick }) => {
     const [isHovered, setIsHovered] = useState(false);
 
     return (
@@ -25,6 +29,7 @@ const CityMarker = ({ coordinates, name, isSource = false }) => {
             coordinates={coordinates}
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
+            onClick={onClick}
             style={{ cursor: "pointer" }}
         >
             {/* Pulsing effect for the Source (İzmir) or standard dot for others */}
@@ -113,6 +118,7 @@ const AnimatedLines = ({ isInView }) => {
 };
 
 const MapChartSection = () => {
+    const { setSelectedCity } = useContext(ProjectContext);
     const ref = useRef(null);
     const isInView = useInView(ref, {
         once: true, // Animation triggers only once
@@ -128,24 +134,30 @@ const MapChartSection = () => {
                 projectionConfig={{ scale: 2200, center: [35, 39.05] }}
                 style={{ width: "100%", height: "auto", display: "flex", alignItems: "center", }}
             >
-                <Geographies geography={TURKEY_TOPO_URL}>
-                    {({ geographies }) =>
-                        geographies.map((geo) => (
-                            <Geography
-                                key={geo.rsmKey}
-                                geography={geo}
-                                fill="transparent"
-                                stroke="#000000"
-                                strokeWidth={1}
-                                style={{
-                                    default: { outline: "none" },
-                                    hover: { fill: "#e7a62e81", outline: "none" },
-                                    pressed: { outline: "none" }
-                                }}
-                            />
-                        ))
-                    }
-                </Geographies>
+                <Link to={"/projeler"}>
+                    <Geographies geography={TURKEY_TOPO_URL}>
+                        {({ geographies }) =>
+                            geographies.map((geo) => (
+                                <Geography
+                                    key={geo.rsmKey}
+                                    geography={geo}
+                                    onClick={() => {
+                                        const cityName = geo.properties.name || geo.properties.NM1;
+                                        setSelectedCity(cityName);
+                                    }}
+                                    fill="transparent"
+                                    stroke="#000000"
+                                    strokeWidth={1}
+                                    style={{
+                                        default: { outline: "none" },
+                                        hover: { fill: "#e7a62e81", outline: "none" },
+                                        pressed: { outline: "none" }
+                                    }}
+                                />
+                            ))
+                        }
+                    </Geographies>
+                </Link>
 
                 {/* Animated Arcs - using map's projection */}
                 <AnimatedLines isInView={isInView} />

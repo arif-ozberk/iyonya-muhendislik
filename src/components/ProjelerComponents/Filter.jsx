@@ -4,11 +4,11 @@ import styles from "../../styles/page_styles/Projeler.module.scss";
 import Projects from "../../data/Projects.json";
 
 const Filter = ({ searchText, setSearchText }) => {
-    const { selectedProjectType, setSelectedProjectType } = useContext(ProjectContext);
+    const { selectedProjectType, setSelectedProjectType, selectedCity, setSelectedCity } = useContext(ProjectContext);
 
     const filterButtons = [
-        { nameTr: "BİTEN PROJELER", id: "finishedProjects" },
-        { nameTr: "DEVAM EDEN PROJELER", id: "unfinishedProjects" }
+        { name: "BİTEN PROJELER", isFinished: true },
+        { name: "DEVAM EDEN PROJELER", isFinished: false }
     ];
 
     const handleSelectedProjectType = (projectType) => {
@@ -19,13 +19,13 @@ const Filter = ({ searchText, setSearchText }) => {
 
     return (
         <div className={styles.filterMainContainer}>
-            {filterButtons.map((item) => (
+            {filterButtons.map((item, id) => (
                 <button
-                    key={item.id}
-                    className={`${styles.filterButton} ${selectedProjectType === item.id ? styles.selectedButton : ""}`}
-                    onClick={() => handleSelectedProjectType(item.id)}
+                    key={id}
+                    className={`${styles.filterButton} ${selectedProjectType === item.isFinished ? styles.selectedButton : ""}`}
+                    onClick={() => handleSelectedProjectType(item.isFinished)}
                 >
-                    {item.nameTr}
+                    {item.name}
                 </button>
             ))}
             <div className={styles.inputContainer}>
@@ -40,10 +40,10 @@ const Filter = ({ searchText, setSearchText }) => {
                     <p className={styles.deleteButton} onClick={() => setSearchText("")}>x</p>
                 )}
             </div>
-            <select className={styles.cityOptionsContainer}>
-                <option value="">Tüm Şehirler</option>
+            <select className={styles.cityOptionsContainer} value={selectedCity} onChange={(e) => setSelectedCity(e.target.value)}>
+                <option value="Tüm Şehirler">Tüm Şehirler</option>
                 {uniqueCities.map((city, id) => (
-                    <option key={id} value={city} className={styles.cityOption}>{city}</option>
+                    <option key={id} value={city} className={styles.cityOption} >{city}</option>
                 ))}
             </select>
         </div>
