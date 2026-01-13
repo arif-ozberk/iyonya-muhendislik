@@ -12,20 +12,11 @@ import Filter from "../components/ProjelerComponents/Filter";
 
 
 const Portfolio = () => {
-    const { selectedNavItem, selectedProjectType, setSelectedProject } = useContext(ProjectContext)
+    const { selectedProjectType, setSelectedProject, selectedCity } = useContext(ProjectContext);
+    const [filteredByProjectType, setFilteredByProjectType] = useState([])
     const [projects, setProjects] = useState(Projects.allProjects);
     const [searchText, setSearchText] = useState("");
 
-
-    // HANDLE PAGE SCROLL WHEN CLICKED ON NAVBAR
-    useEffect(() => {
-        window.scrollTo({
-            top: 0,
-            left: 0,
-            behavior: "smooth"
-        })
-
-    }, [selectedNavItem])
 
     function handleProjectClick(clickedProjectId) {
         const clickedProject = projects.find(project => project.id === clickedProjectId);
@@ -34,7 +25,7 @@ const Portfolio = () => {
 
     // Filter by tags (case-insensitive). All entered terms must match at least one tag each.
     const filteredProjects = useMemo(() => {
-        const list = Array.isArray(projects) ? projects : [];
+        const list = Array.isArray(filteredByProjectType) ? projects : [];
         const q = (searchText || "").toLowerCase().trim();
         if (!q) return list;
         const terms = q.split(/\s+/);
@@ -44,6 +35,11 @@ const Portfolio = () => {
             return terms.every(term => tags.some(tag => tag.includes(term)));
         });
     }, [projects, searchText]);
+
+    useEffect(() => {
+        selectedCity == "Tüm Şehirler" ? setFilteredByProjectType(filteredProjects.filter(item => item.isFinished === selectedProjectType)) : setFilteredByProjectType(filteredProjects.filter(item => item.isFinished === selectedProjectType && item.projectDetails.city == selectedCity));
+    }, [selectedProjectType, filteredProjects, selectedCity])
+
 
     return (
         <PageWrapper>
@@ -56,12 +52,12 @@ const Portfolio = () => {
                 />
 
                 <ul className={styles.projectsMainContainer}>
-                    {filteredProjects.length === 0 ? (
+                    {filteredByProjectType.length === 0 ? (
                         <li className={styles.noProjects}>
                             <p> "Hiç proje bulunamadı..."</p>
                         </li>
                     ) : (
-                        filteredProjects.map((item) => (
+                        filteredByProjectType.map((item) => (
                             <Link to={`/project/${item.id}`} className={styles.projectContainer} key={item.id} onClick={() => handleProjectClick(item.id)}>
                                 <img
                                     className={styles.projectImage}

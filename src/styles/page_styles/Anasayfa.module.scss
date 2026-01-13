@@ -30,6 +30,7 @@
         .aboutSectionContainer {
             width: 100%;
             @include flex-space-between;
+            min-height: 20rem;
             text-align: center;
             column-gap: 2rem;
 
@@ -80,7 +81,7 @@
 
                         &:hover {
                             background-color: $orange-main;
-                            border-color:$orange-main;
+                            border-color: $orange-main;
                             scale: 1.1;
 
                             svg {
