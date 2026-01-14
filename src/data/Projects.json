@@ -16,7 +16,10 @@
         ],
         "year": 2025,
         "client": "Ankara Büyükşehir Belediyesi",
-        "projectPictureUrl": "https://res.cloudinary.com/dabmjz0xr/image/upload/v1756589598/G%C3%B6rsel_05_yhcmbq.jpg",
+        "projectPictureUrl": [
+          "https://res.cloudinary.com/dabmjz0xr/image/upload/v1756589598/G%C3%B6rsel_05_yhcmbq.jpg",
+          "https://res.cloudinary.com/dabmjz0xr/image/upload/v1756589598/G%C3%B6rsel_05_yhcmbq.jpg"
+          ],
         "imageYPosition": 15
       }
     },
@@ -36,7 +39,10 @@
         ],
         "year": 2024,
         "client": "Ege Enerji Sistemleri A.Ş.",
-        "projectPictureUrl": "https://res.cloudinary.com/dabmjz0xr/image/upload/v1756589598/G%C3%B6rsel_05_yhcmbq.jpg",
+        "projectPictureUrl": [
+          "https://res.cloudinary.com/dabmjz0xr/image/upload/v1756589598/G%C3%B6rsel_05_yhcmbq.jpg",
+          "https://res.cloudinary.com/dabmjz0xr/image/upload/v1756589598/G%C3%B6rsel_05_yhcmbq.jpg"
+          ],
         "imageYPosition": 15
       }
     },
@@ -56,7 +62,10 @@
         ],
         "year": 2023,
         "client": "İstanbul Ulaşım Daire Başkanlığı",
-        "projectPictureUrl": "https://res.cloudinary.com/dabmjz0xr/image/upload/v1756589598/G%C3%B6rsel_05_yhcmbq.jpg",
+        "projectPictureUrl": [
+          "https://res.cloudinary.com/dabmjz0xr/image/upload/v1756589598/G%C3%B6rsel_05_yhcmbq.jpg",
+          "https://res.cloudinary.com/dabmjz0xr/image/upload/v1756589598/G%C3%B6rsel_05_yhcmbq.jpg"
+          ],
         "imageYPosition": 15
       }
     },
@@ -76,7 +85,10 @@
         ],
         "year": 2026,
         "client": "Vakıflar Genel Müdürlüğü",
-        "projectPictureUrl": "https://res.cloudinary.com/dabmjz0xr/image/upload/v1756589598/G%C3%B6rsel_05_yhcmbq.jpg",
+        "projectPictureUrl": [
+          "https://res.cloudinary.com/dabmjz0xr/image/upload/v1756589598/G%C3%B6rsel_05_yhcmbq.jpg",
+          "https://res.cloudinary.com/dabmjz0xr/image/upload/v1756589598/G%C3%B6rsel_05_yhcmbq.jpg"
+          ],
         "imageYPosition": 15
       }
     },
@@ -96,7 +108,10 @@
         ],
         "year": 2025,
         "client": "Akdeniz Marina İşletmeleri",
-        "projectPictureUrl": "https://res.cloudinary.com/dabmjz0xr/image/upload/v1756589598/G%C3%B6rsel_05_yhcmbq.jpg",
+        "projectPictureUrl": [
+          "https://res.cloudinary.com/dabmjz0xr/image/upload/v1756589598/G%C3%B6rsel_05_yhcmbq.jpg",
+          "https://res.cloudinary.com/dabmjz0xr/image/upload/v1756589598/G%C3%B6rsel_05_yhcmbq.jpg"
+          ],
         "imageYPosition": 15
       }
     },
@@ -116,7 +131,10 @@
         ],
         "year": 2024,
         "client": "Anadolu Makine Sistemleri",
-        "projectPictureUrl": "https://res.cloudinary.com/dabmjz0xr/image/upload/v1756589598/G%C3%B6rsel_05_yhcmbq.jpg",
+        "projectPictureUrl": [
+          "https://res.cloudinary.com/dabmjz0xr/image/upload/v1756589598/G%C3%B6rsel_05_yhcmbq.jpg",
+          "https://res.cloudinary.com/dabmjz0xr/image/upload/v1756589598/G%C3%B6rsel_05_yhcmbq.jpg"
+          ],
         "imageYPosition": 15
       }
     },
@@ -136,7 +154,10 @@
         ],
         "year": 2026,
         "client": "Tarım ve Orman Bakanlığı",
-        "projectPictureUrl": "https://res.cloudinary.com/dabmjz0xr/image/upload/v1756589598/G%C3%B6rsel_05_yhcmbq.jpg",
+        "projectPictureUrl": [
+          "https://res.cloudinary.com/dabmjz0xr/image/upload/v1756589598/G%C3%B6rsel_05_yhcmbq.jpg",
+          "https://res.cloudinary.com/dabmjz0xr/image/upload/v1756589598/G%C3%B6rsel_05_yhcmbq.jpg"
+          ],
         "imageYPosition": 15
       }
     },
@@ -156,7 +177,10 @@
         ],
         "year": 2025,
         "client": "Karayolları Genel Müdürlüğü",
-        "projectPictureUrl": "https://res.cloudinary.com/dabmjz0xr/image/upload/v1756589598/G%C3%B6rsel_05_yhcmbq.jpg",
+        "projectPictureUrl": [
+          "https://res.cloudinary.com/dabmjz0xr/image/upload/v1756589598/G%C3%B6rsel_05_yhcmbq.jpg",
+          "https://res.cloudinary.com/dabmjz0xr/image/upload/v1756589598/G%C3%B6rsel_05_yhcmbq.jpg"
+          ],
         "imageYPosition": 15
       }
     },
@@ -176,7 +200,10 @@
         ],
         "year": 2024,
         "client": "Gaziantep Üniversitesi",
-        "projectPictureUrl": "https://res.cloudinary.com/dabmjz0xr/image/upload/v1756589598/G%C3%B6rsel_05_yhcmbq.jpg",
+        "projectPictureUrl": [
+          "https://res.cloudinary.com/dabmjz0xr/image/upload/v1756589598/G%C3%B6rsel_05_yhcmbq.jpg",
+          "https://res.cloudinary.com/dabmjz0xr/image/upload/v1756589598/G%C3%B6rsel_05_yhcmbq.jpg"
+          ],
         "imageYPosition": 15
       }
     }
