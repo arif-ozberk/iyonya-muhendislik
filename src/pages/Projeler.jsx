@@ -58,11 +58,11 @@ const Portfolio = () => {
                         </li>
                     ) : (
                         filteredByProjectType.map((item) => (
-                            <Link to={`/project/${item.id}`} className={styles.projectContainer} key={item.id} onClick={() => handleProjectClick(item.id)}>
+                            <Link to={`/proje/${item.id}`} className={styles.projectContainer} key={item.id} onClick={() => handleProjectClick(item.id)}>
                                 <img
                                     className={styles.projectImage}
                                     // style={{ transform: `translateY(${item.projectDetails.imageYPosition}%)` }}
-                                    src={item.projectDetails.projectPictureUrl}
+                                    src={item.projectDetails.projectPictureUrl[0]}
                                     alt=""
                                 />
                                 <div className={styles.projectDescriptionContainer}>
