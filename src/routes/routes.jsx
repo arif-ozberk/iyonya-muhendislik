@@ -48,7 +48,9 @@ export const router = createBrowserRouter(
             {routes.map((routeItem) => (
                 <Route key={routeItem.routePath} path={routeItem.routePath} element={routeItem.routeElement} />
             ))}
+
             <Route path="/proje/:id" element={<Proje />} />
+            
         </Route>
     )
 );

@@ -47,7 +47,7 @@ const SlickSlider = () => {
     }, []);
 
     const isMobile = viewportWidth <= 768;
-    console.log(isMobile);
+    // console.log(isMobile);
 
     const settings = {
         className: "slider",
