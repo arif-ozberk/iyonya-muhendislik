@@ -65,19 +65,19 @@ const SlickSlider = () => {
             {!isLoading && <div className={styles.mainSlider} ref={sliderRef}>
                 <Slider key={isMobile ? "vertical" : "horizontal"} {...settings}>
                     <div className={styles.slide}>
-                        <h1>{selectedProject?.projectDetails.projectDetails.projectName}</h1>
+                        <h1>{selectedProject?.projectName}</h1>
 
                         <p>MÜŞTERİ</p>
-                        <p className={styles.slideText}>{selectedProject?.projectDetails.projectDetails.client}</p>
+                        <p className={styles.slideText}>{selectedProject?.client}</p>
 
                         <p>KONUM</p>
-                        <p className={styles.slideText}>{selectedProject?.projectDetails.projectDetails.city}</p>
+                        <p className={styles.slideText}>{selectedProject?.city}</p>
 
                         <p>YIL</p>
-                        <p className={styles.slideText}>{selectedProject?.projectDetails.projectDetails.year}</p>
+                        <p className={styles.slideText}>{selectedProject?.year}</p>
                     </div>
 
-                    {selectedProject?.projectDetails.projectDetails.projectPictureUrl && selectedProject?.projectDetails.projectDetails.projectPictureUrl.map((picture, id) => (
+                    {selectedProject?.projectPictureUrl && selectedProject?.projectPictureUrl.map((picture, id) => (
                         <div className={styles.slide} key={id}>
                             <img
                                 src={picture}

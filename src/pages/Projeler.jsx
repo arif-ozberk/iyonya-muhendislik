@@ -16,15 +16,21 @@ import { ProjectContext } from "../context/ProjectContext";
 // React-Router
 import { Link } from 'react-router'
 
+// React-Icons
+import { FaChevronDown } from "react-icons/fa6";
+
 
 const Portfolio = () => {
-    const { selectedProjectType, setSelectedProject, selectedCity, projects, setProjects } = useContext(ProjectContext);
+    const { selectedProjectType, setSelectedProject, selectedCity, projects, setProjects, loadCount, setLoadCount } = useContext(ProjectContext);
     const [filteredByProjectType, setFilteredByProjectType] = useState([])
     const [searchText, setSearchText] = useState("");
+    const [isLoadVisible, setIsLoadVisible] = useState(true);
+
 
     useEffect(() => {
-        projectsDb.fetchAllProjects(setProjects);
-    }, [])
+        projectsDb.fetchAllProjects(setProjects, selectedProjectType, loadCount);
+
+    }, [selectedProjectType, loadCount])
 
 
     function handleProjectClick(clickedProjectId) {
@@ -40,7 +46,7 @@ const Portfolio = () => {
         if (!q) return list;
         const terms = q.split(/\s+/);
         return list.filter(p => {
-            const tags = (p.projectDetails.projectDetails.tags || []).map(t => String(t).toLowerCase());
+            const tags = (p.tags || []).map(t => String(t).toLowerCase());
             if (tags.length === 0) return false;
             return terms.every(term => tags.some(tag => tag.includes(term)));
         });
@@ -48,7 +54,12 @@ const Portfolio = () => {
 
 
     useEffect(() => {
-        selectedCity == "Tüm Şehirler" ? setFilteredByProjectType(filteredProjects.filter(item => item.isFinished === selectedProjectType)) : setFilteredByProjectType(filteredProjects.filter(item => item.isFinished === selectedProjectType && item.projectDetails.projectDetails.city == selectedCity));
+        // projectsDb.fetchAllProjects(setProjects, selectedProjectType);
+        selectedCity == "Tüm Şehirler" ? setFilteredByProjectType(filteredProjects.filter(item => item.isFinished === selectedProjectType)) : setFilteredByProjectType(filteredProjects.filter(item => item.isFinished === selectedProjectType && item.city == selectedCity));
+
+        // if (projects.length == loadCount) { take a look at it
+        //     setIsLoadVisible(false);
+        // }
     }, [selectedProjectType, filteredProjects, selectedCity])
 
 
@@ -72,18 +83,20 @@ const Portfolio = () => {
                             <Link to={`/proje/${item.id}`} className={styles.projectContainer} key={item.id} onClick={() => handleProjectClick(item.id)}>
                                 <img
                                     className={styles.projectImage}
-                                    // style={{ transform: `translateY(${item.projectDetails.projectDetails.imageYPosition}%)` }}
-                                    src={item.projectDetails.projectDetails.projectPictureUrl[0]}
+                                    // style={{ transform: `translateY(${item.projectDetails.imageYPosition}%)` }}
+                                    src={item.projectPictureUrl[0]}
                                     alt=""
                                 />
                                 <div className={styles.projectDescriptionContainer}>
-                                    <h3>{item.projectDetails.projectName}</h3>
+                                    <h3>{item.projectName}</h3>
                                     <p> "detayları görüntüle"</p>
                                 </div>
                             </Link>
                         ))
                     )}
                 </ul>
+
+                {isLoadVisible && <h2 className={styles.loadButton} onClick={() => setLoadCount(prev => prev + 6)}>DAHA FAZLA PROJE YÜKLE</ h2>}
 
             </div>
 

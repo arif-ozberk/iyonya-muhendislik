@@ -69,20 +69,20 @@ const VerticalSlider = () => {
                 {!isLoading && selectedProject && (
                     <>
                         <section className={`${styles.slide} vs-slide`} aria-roledescription="slide" aria-label="Project details">
-                            <h1>{selectedProject?.projectDetails.projectDetails.projectName}</h1>
+                            <h1>{selectedProject?.projectName}</h1>
 
                             <p>MÜŞTERİ</p>
-                            <p className={styles.slideText}>{selectedProject?.projectDetails.projectDetails.client}</p>
+                            <p className={styles.slideText}>{selectedProject?.client}</p>
 
                             <p>KONUM</p>
-                            <p className={styles.slideText}>{selectedProject?.projectDetails.projectDetails.city}</p>
+                            <p className={styles.slideText}>{selectedProject?.city}</p>
 
                             <p>YIL</p>
-                            <p className={styles.slideText}>{selectedProject?.projectDetails.projectDetails.year}</p>
+                            <p className={styles.slideText}>{selectedProject?.year}</p>
                         </section>
 
-                        {selectedProject?.projectDetails.projectDetails.projectPictureUrl &&
-                            selectedProject?.projectDetails.projectDetails.projectPictureUrl.map((picture, id) => (
+                        {selectedProject?.projectPictureUrl &&
+                            selectedProject?.projectPictureUrl.map((picture, id) => (
                                 <section
                                     className={`${styles.slide} vs-slide`}
                                     key={id}
