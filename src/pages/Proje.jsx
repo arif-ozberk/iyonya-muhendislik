@@ -1,12 +1,14 @@
-// DEPENDENCIES
 import { useState, useEffect } from "react";
+
+// Styles
 import styles from "../styles/page_styles/Proje.module.scss";
 
-// PAGE COMPONENTS
-import PageWrapper from "../wrappers/PageWrapper"
+// Components
 import SlickSlider from "../components/ProjeSayfaComponents/SlickSlider"
 import BackButton from "../components/ProjeSayfaComponents/BackButton";
 
+// Wrappers
+import PageWrapper from "../wrappers/PageWrapper"
 
 
 const Project = () => {

@@ -6,16 +6,17 @@ import { ProjectContext } from "../../context/ProjectContext";
 // Styles
 import styles from "../../styles/page_styles/Projeler.module.scss";
 
-// Data
-import Projects from "../../data/Projects.json";
-
 // React-Icons
 import { FaChevronDown } from "react-icons/fa6";
 
 
 const Filter = ({ searchText, setSearchText }) => {
 
-    const { selectedProjectType, setSelectedProjectType, selectedCity, setSelectedCity } = useContext(ProjectContext);
+    const {
+        selectedProjectType, setSelectedProjectType,
+        selectedCity, setSelectedCity,
+        projects, setProjects
+    } = useContext(ProjectContext);
 
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
@@ -48,7 +49,7 @@ const Filter = ({ searchText, setSearchText }) => {
     };
 
 
-    const uniqueCities = [...new Set(Projects.allProjects.map(item => item.projectDetails.city))];
+    const uniqueCities = [...new Set(projects?.map(item => item.projectDetails.projectDetails.city))];
 
 
     return (
