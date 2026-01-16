@@ -49,7 +49,7 @@
 
 .slide p {
     font-weight: 500;
-    color: var(--textGrey);
+    color: $gray-main;
     text-align: end;
 
     @media (max-width: 768px) {
@@ -59,7 +59,7 @@
 
 .slideText {
     font-weight: 700 !important;
-    color: var(--textBlack) !important;
+    color: $black !important;
     margin-bottom: 0.75rem;
 }
 
