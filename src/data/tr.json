@@ -1197,7 +1197,7 @@
       "properties": {
         "source": "https://simplemaps.com",
         "id": "TR73",
-        "name": "Sirnak"
+        "name": "Şırnak"
       },
       "id": 3
     },
@@ -2181,7 +2181,7 @@
       "properties": {
         "source": "https://simplemaps.com",
         "id": "TR76",
-        "name": "Iğdir"
+        "name": "Iğdır"
       },
       "id": 5
     },
@@ -2709,7 +2709,7 @@
       "properties": {
         "source": "https://simplemaps.com",
         "id": "TR04",
-        "name": "Agri"
+        "name": "Ağrı"
       },
       "id": 6
     },
@@ -4045,7 +4045,7 @@
       "properties": {
         "source": "https://simplemaps.com",
         "id": "TR39",
-        "name": "Kirklareli"
+        "name": "Kırklareli"
       },
       "id": 8
     },
@@ -6277,7 +6277,7 @@
       "properties": {
         "source": "https://simplemaps.com",
         "id": "TR63",
-        "name": "Sanliurfa"
+        "name": "Şanlıurfa"
       },
       "id": 12
     },
@@ -8271,7 +8271,7 @@
       "properties": {
         "source": "https://simplemaps.com",
         "id": "TR34",
-        "name": "Istanbul"
+        "name": "İstanbul"
       },
       "id": 16
     },
@@ -8579,7 +8579,7 @@
       "properties": {
         "source": "https://simplemaps.com",
         "id": "TR59",
-        "name": "Tekirdag"
+        "name": "Tekirdağ"
       },
       "id": 17
     },
@@ -13369,7 +13369,7 @@
       "properties": {
         "source": "https://simplemaps.com",
         "id": "TR67",
-        "name": "Zinguldak"
+        "name": "Zonguldak"
       },
       "id": 27
     },
@@ -16299,7 +16299,7 @@
       "properties": {
         "source": "https://simplemaps.com",
         "id": "TR10",
-        "name": "Balikesir"
+        "name": "Balıkesir"
       },
       "id": 33
     },
@@ -18063,7 +18063,7 @@
       "properties": {
         "source": "https://simplemaps.com",
         "id": "TR35",
-        "name": "Izmir"
+        "name": "İzmir"
       },
       "id": 34
     },
@@ -18627,7 +18627,7 @@
       "properties": {
         "source": "https://simplemaps.com",
         "id": "TR09",
-        "name": "Aydin"
+        "name": "Aydın"
       },
       "id": 35
     },
@@ -21619,7 +21619,7 @@
       "properties": {
         "source": "https://simplemaps.com",
         "id": "TR48",
-        "name": "Mugla"
+        "name": "Muğla"
       },
       "id": 36
     },
@@ -26235,7 +26235,7 @@
       "properties": {
         "source": "https://simplemaps.com",
         "id": "TR26",
-        "name": "Eskisehir"
+        "name": "Eskişehir"
       },
       "id": 43
     },
@@ -26555,7 +26555,7 @@
       "properties": {
         "source": "https://simplemaps.com",
         "id": "TR18",
-        "name": "Çankiri"
+        "name": "Çankırı"
       },
       "id": 44
     },
@@ -30455,7 +30455,7 @@
       "properties": {
         "source": "https://simplemaps.com",
         "id": "TR51",
-        "name": "Nigde"
+        "name": "Niğde"
       },
       "id": 53
     },
@@ -33047,7 +33047,7 @@
       "properties": {
         "source": "https://simplemaps.com",
         "id": "TR50",
-        "name": "Nevsehir"
+        "name": "Nevşehir"
       },
       "id": 60
     },
@@ -33715,7 +33715,7 @@
       "properties": {
         "source": "https://simplemaps.com",
         "id": "TR40",
-        "name": "Kirsehir"
+        "name": "Kırşehir"
       },
       "id": 62
     },
@@ -33995,7 +33995,7 @@
       "properties": {
         "source": "https://simplemaps.com",
         "id": "TR64",
-        "name": "Usak"
+        "name": "Uşak"
       },
       "id": 63
     },
@@ -35659,7 +35659,7 @@
       "properties": {
         "source": "https://simplemaps.com",
         "id": "TR71",
-        "name": "Kinkkale"
+        "name": "Kırıkkale"
       },
       "id": 67
     },
@@ -36031,7 +36031,7 @@
       "properties": {
         "source": "https://simplemaps.com",
         "id": "TR46",
-        "name": "K. Maras"
+        "name": "Kahramanmaraş"
       },
       "id": 68
     },
@@ -36383,7 +36383,7 @@
       "properties": {
         "source": "https://simplemaps.com",
         "id": "TR49",
-        "name": "Mus"
+        "name": "Muş"
       },
       "id": 69
     },
@@ -38191,7 +38191,7 @@
       "properties": {
         "source": "https://simplemaps.com",
         "id": "TR23",
-        "name": "Elazig"
+        "name": "Elazığ"
       },
       "id": 72
     },
@@ -39675,7 +39675,7 @@
       "properties": {
         "source": "https://simplemaps.com",
         "id": "TR02",
-        "name": "Adiyaman"
+        "name": "Adıyaman"
       },
       "id": 76
     },
@@ -40123,7 +40123,7 @@
       "properties": {
         "source": "https://simplemaps.com",
         "id": "TR21",
-        "name": "Diyarbakir"
+        "name": "Diyarbakır"
       },
       "id": 77
     },
@@ -41071,7 +41071,7 @@
       "properties": {
         "source": "https://simplemaps.com",
         "id": "TR29",
-        "name": "Gümüshane"
+        "name": "Gümüşhane"
       },
       "id": 81
     }

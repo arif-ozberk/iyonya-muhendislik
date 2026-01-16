@@ -1,10 +1,13 @@
 import iyonyaDB from "../config/supabaseClient"
 
 
-const fetchAllProjects = async (setProjects) => {
+const fetchAllProjects = async (setProjects, selectedProjectType, loadCount) => {
     const { data, error } = await iyonyaDB
-        .from('projects_db')
+        .from('projects_sql')
         .select()
+        .eq("isFinished", selectedProjectType)
+        .range(0, loadCount)
+        .order('id', { ascending: true });
 
     if (error) {
         console.log(error);
@@ -19,7 +22,7 @@ const fetchAllProjects = async (setProjects) => {
 
 const fetchCurrentProject = async (projectId, setSelectedProject, setIsLoading) => {
     const { data, error } = await iyonyaDB
-        .from("projects_db")
+        .from("projects_sql")
         .select()
         .eq("id", projectId)
         .single()

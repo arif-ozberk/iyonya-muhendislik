@@ -8,6 +8,7 @@ export const ProjectContextProvider = ({ children }) => {
     const [selectedCity, setSelectedCity] = useState("Tüm Şehirler");
     const [selectedProject, setSelectedProject] = useState({});
     const [projects, setProjects] = useState([]);
+    const [loadCount, setLoadCount] = useState(5);
 
 
     return (
@@ -16,7 +17,8 @@ export const ProjectContextProvider = ({ children }) => {
                 selectedProjectType, setSelectedProjectType,
                 selectedProject, setSelectedProject,
                 selectedCity, setSelectedCity,
-                projects, setProjects
+                projects, setProjects,
+                loadCount, setLoadCount
             }}
         >
             {children}

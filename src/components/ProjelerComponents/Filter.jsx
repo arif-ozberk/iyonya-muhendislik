@@ -15,7 +15,8 @@ const Filter = ({ searchText, setSearchText }) => {
     const {
         selectedProjectType, setSelectedProjectType,
         selectedCity, setSelectedCity,
-        projects, setProjects
+        projects, setProjects,
+        loadCount, setLoadCount
     } = useContext(ProjectContext);
 
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -46,10 +47,11 @@ const Filter = ({ searchText, setSearchText }) => {
 
     const handleSelectedProjectType = (projectType) => {
         setSelectedProjectType(projectType);
+        setLoadCount(5);
     };
 
 
-    const uniqueCities = [...new Set(projects?.map(item => item.projectDetails.projectDetails.city))];
+    const uniqueCities = [...new Set(projects?.map(item => item.city))];
 
 
     return (
