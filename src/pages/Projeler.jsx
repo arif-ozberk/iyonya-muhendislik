@@ -2,7 +2,7 @@
 import { useContext, useEffect, useMemo, useState } from "react";
 import { Link } from 'react-router'
 import { ProjectContext } from "../context/ProjectContext";
-import Projects from "../data/Projects.json"
+import fetchAllProjects from "../config/projectsDb";
 import styles from "../styles/page_styles/Projeler.module.scss";
 
 
@@ -14,8 +14,15 @@ import Filter from "../components/ProjelerComponents/Filter";
 const Portfolio = () => {
     const { selectedProjectType, setSelectedProject, selectedCity } = useContext(ProjectContext);
     const [filteredByProjectType, setFilteredByProjectType] = useState([])
-    const [projects, setProjects] = useState(Projects.allProjects);
+    const [projects, setProjects] = useState([]);
     const [searchText, setSearchText] = useState("");
+
+    useEffect(() => {
+        console.log(projects)
+        fetchAllProjects(setProjects)
+
+
+    }, [])
 
 
     function handleProjectClick(clickedProjectId) {
@@ -39,6 +46,8 @@ const Portfolio = () => {
     useEffect(() => {
         selectedCity == "Tüm Şehirler" ? setFilteredByProjectType(filteredProjects.filter(item => item.isFinished === selectedProjectType)) : setFilteredByProjectType(filteredProjects.filter(item => item.isFinished === selectedProjectType && item.projectDetails.city == selectedCity));
     }, [selectedProjectType, filteredProjects, selectedCity])
+
+
 
 
     return (
