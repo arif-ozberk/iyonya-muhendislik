@@ -1,0 +1,143 @@
+// ... existing code ...
+      "geometry": {
+        "type": "Polygon",
+        "center": [
+          42.7022,
+          41.113
+        ],
+        "coordinates": [
+// ... existing code ...
+    {
+      "geometry": {
+        "type": "Polygon",
+        "center": [
+          41.8183,
+          41.1819
+        ],
+        "coordinates": [
+// ... existing code ...
+    {
+      "geometry": {
+        "type": "Polygon",
+        "center": [
+          42.4531,
+          37.5164
+        ],
+        "coordinates": [
+// ... existing code ...
+    {
+      "geometry": {
+        "type": "Polygon",
+        "center": [
+          43.7368,
+          37.5744
+        ],
+        "coordinates": [
+// ... existing code ...
+    {
+      "geometry": {
+        "type": "Polygon",
+        "center": [
+          44.0391,
+          39.9201
+        ],
+        "coordinates": [
+// ... existing code ...
+    {
+      "geometry": {
+        "type": "Polygon",
+        "center": [
+          43.0519,
+          39.7191
+        ],
+        "coordinates": [
+// ... existing code ...
+    {
+      "geometry": {
+        "type": "Polygon",
+        "center": [
+          43.38,
+          38.49
+        ],
+// ... existing code ...
+    {
+      "geometry": {
+        "type": "Polygon",
+        "center": [
+          27.2173,
+          41.7333
+        ],
+        "coordinates": [
+// ... existing code ...
+    {
+      "geometry": {
+        "type": "Polygon",
+        "center": [
+          26.5567,
+          41.6771
+        ],
+        "coordinates": [
+// ... existing code ...
+    {
+      "geometry": {
+        "type": "Polygon",
+        "center": [
+          43.0875,
+          40.6013
+        ],
+        "coordinates": [
+// ... existing code ...
+    {
+      "geometry": {
+        "type": "Polygon",
+        "center": [
+          40.7339,
+          37.3129
+        ],
+        "coordinates": [
+// ... existing code ...
+    {
+      "geometry": {
+        "type": "Polygon",
+        "center": [
+          38.7917,
+          37.1591
+        ],
+        "coordinates": [
+// ... existing code ...
+    {
+      "geometry": {
+        "type": "Polygon",
+        "center": [
+          37.1133,
+          36.7161
+        ],
+        "coordinates": [
+// ... existing code ...
+    {
+      "geometry": {
+        "type": "Polygon",
+        "center": [
+          37.38,
+          37.0662
+        ],
+        "coordinates": [
+// ... existing code ...
+    {
+      "geometry": {
+        "type": "Polygon",
+        "center": [
+          36.1605,
+          36.4018
+        ],
+        "coordinates": [
+// ... existing code ...
+    {
+      "geometry": {
+        "type": "MultiPolygon",
+        "center": [
+          28.9784,
+          41.0082
+        ],
+        "coordinates": [
+// ... existing code ...

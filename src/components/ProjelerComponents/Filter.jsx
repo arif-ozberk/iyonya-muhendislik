@@ -67,9 +67,9 @@ const Filter = ({ searchText, setSearchText }) => {
 
             <div className={styles.filterRight}>
                 <div className={styles.cityDropdownContainer} ref={dropdownRef}>
-                    <div className={styles.selectMenu}>
+                    <div className={styles.selectMenu} onClick={() => setIsDropdownOpen(prev => !prev)}>
                         <p>{selectedCity}</p>
-                        <FaChevronDown onClick={() => setIsDropdownOpen(prev => !prev)} />
+                        <FaChevronDown />
                     </div>
 
                     {isDropdownOpen && <div className={styles.dropdownContainer}>

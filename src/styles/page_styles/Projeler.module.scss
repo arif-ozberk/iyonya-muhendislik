@@ -135,6 +135,7 @@
         }
 
         .cityDropdownContainer {
+            cursor: pointer;
             display: flex;
             position: relative;
 
@@ -155,7 +156,7 @@
                 @media(max-width: 520px) {
                     width: 8rem;
                 }
-                
+
                 p {
                     font-size: 0.9rem;
 
@@ -209,14 +210,13 @@
 
                 .dropdownMenu {
                     width: 100%;
-                    
+
 
                     li {
                         height: 2rem;
                         display: flex;
                         align-items: center;
                         padding-inline: 0.6rem;
-                        cursor: pointer;
                         font-size: 0.9rem;
                         transition: background-color 0.2s ease, color 0.2s ease;
 
