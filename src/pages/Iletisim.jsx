@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 // Styles
 import styles from "../styles/page_styles/Iletisim.module.scss";
@@ -39,6 +39,11 @@ const Iletisim = () => {
         { icon: <FaPhoneAlt />, text: "0536 355 4701" },
         { icon: <IoIosMail />, text: "info@iyonyamuhendislik.com.tr" }
     ]
+
+    
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
 
 
     return (
