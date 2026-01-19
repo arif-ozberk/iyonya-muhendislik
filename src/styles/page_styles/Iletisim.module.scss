@@ -1,5 +1,123 @@
 @use "../globals.scss" as *;
 
-.Iletisim {
 
+.iletisim {
+
+    .iletisimPageContainer {
+        display: flex;
+
+        @media (max-width: 768px) {
+            flex-direction: column;
+        }
+
+        img {
+            width: 70%;
+            height: 100vh;
+            object-fit: cover;
+
+            @media (max-width: 1440px) {
+                width: 65%;
+            }
+
+            @media (max-width: 768px) {
+                width: 100%;
+                height: 60vh;
+            }
+        }
+
+        .contactDetails {
+            display: flex;
+            flex-direction: column;
+            align-items: start;
+            justify-content: center;
+            row-gap: 2rem;
+            padding-inline: 2rem;
+
+            @media (max-width: 1200px) {
+                row-gap: 1.5rem;
+                padding-inline: 1.5rem;
+            }
+
+            @media (max-width: 880px) {
+                padding-inline: 1rem;
+            }
+
+            @media (max-width: 768px) {
+                height: 40vh;
+            }
+
+            h1 {
+                font-size: 2rem;
+
+                @media (max-width: 1200px) {
+                    font-size: 1.5rem;
+                }
+
+                @media (max-width: 576px) {
+                    font-size: 1.2rem;
+                }
+            }
+
+            .contactInfo {
+                display: flex;
+                flex-direction: column;
+                row-gap: 1rem;
+                
+                li {
+                    display: flex;
+                    align-items: center;
+                    column-gap: 1.6rem;
+
+                    @media (max-width: 1200px) {
+                        column-gap: 1rem;
+                    }
+
+                    svg {
+                        flex-shrink: 0;
+                        font-size: 1rem;
+
+                        @media (max-width: 1200px) {
+                            font-size: 0.8rem;
+                        }
+                    }
+            
+                    p {
+                        margin: 0;
+                        word-break: break-word;
+
+                        @media (max-width: 1200px) {
+                            font-size: 0.8rem;
+                        }
+                    }
+                }
+            }
+
+            .socialMedia {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                column-gap: 1rem;
+
+                a {
+                    display: flex;
+
+                    &:hover {
+                        svg {
+                            scale: 1.1;
+                            fill: $orange-main;
+                        }
+                    }
+
+                    svg {
+                        font-size: 1.2rem;
+                        transition: scale 0.2s ease, fill 0.2s ease;
+
+                        @media (max-width: 1200px) {
+                            font-size: 1rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
