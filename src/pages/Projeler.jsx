@@ -83,7 +83,7 @@ const Portfolio = () => {
                             <Link to={`/proje/${item.id}`} className={styles.projectContainer} key={item.id} onClick={() => handleProjectClick(item.id)}>
                                 <img
                                     className={styles.projectImage}
-                                    // style={{ transform: `translateY(${item.projectDetails.imageYPosition}%)` }}
+                                    style={{ transform: `translateY(${item.imageYPosition}%)` }}
                                     src={item.projectPictureUrl[0]}
                                     alt=""
                                 />
