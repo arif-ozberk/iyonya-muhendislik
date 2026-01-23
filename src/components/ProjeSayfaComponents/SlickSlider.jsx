@@ -67,9 +67,6 @@ const SlickSlider = () => {
                     <div className={styles.slide}>
                         <h1>{selectedProject?.projectName}</h1>
 
-                        <p>MÜŞTERİ</p>
-                        <p className={styles.slideText}>{selectedProject?.client}</p>
-
                         <p>KONUM</p>
                         <p className={styles.slideText}>{selectedProject?.city}</p>
 

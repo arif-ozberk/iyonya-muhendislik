@@ -26,17 +26,35 @@ const fetchCurrentProject = async (projectId, setSelectedProject, setIsLoading) 
         .select()
         .eq("id", projectId)
         .single()
-    
-        if (error) {
-            console.log(error);
-            return;
-        }
 
-        if (data) {
-            setSelectedProject(data);
-            setIsLoading(false);
-        }
+    if (error) {
+        console.log(error);
+        return;
+    }
+
+    if (data) {
+        setSelectedProject(data);
+        setIsLoading(false);
+    }
+}
+
+const fetchAllCities = async (setAllCities) => {
+    const { data, error } = await iyonyaDB
+        .from("projects_sql")
+        .select("city")
+
+    if (error) {
+        console.log(error);
+        return
+    }
+
+    if (data) {
+
+        const uniqueCities = [...new Set(data.map(item => item.city))];
+        console.log(uniqueCities);
+        setAllCities(uniqueCities);
+    }
 }
 
 
-export default { fetchAllProjects, fetchCurrentProject };
+export default { fetchAllProjects, fetchCurrentProject, fetchAllCities };

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useContext, useEffect } from 'react';
 
 // Styles
 import styles from "../styles/page_styles/Anasayfa.module.scss";
@@ -17,13 +17,19 @@ import landingVideo from "../assets/logoAnimation.webm"
 
 // Functions
 import { findCurrentPage } from '../functions/FindCurrentPage';
+import projectsDb from '../config/projectsDb';
+import iyonyaDB from '../config/supabaseClient';
+import { ProjectContext } from '../context/ProjectContext';
 
 
 const Anasayfa = () => {
 
+    const { setAllCities } = useContext(ProjectContext)
+
     useEffect(() => {
         findCurrentPage();
-        
+        projectsDb.fetchAllCities(setAllCities);
+
         window.scrollTo(0, 0);
     }, [])
 

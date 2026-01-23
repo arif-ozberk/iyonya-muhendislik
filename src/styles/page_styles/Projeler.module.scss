@@ -270,6 +270,8 @@
             width: 100%;
             height: 15rem;
             overflow: hidden;
+            display: flex;
+            align-items: center;
 
             @media(max-width: 460px) {
                 height: 10rem;
@@ -280,6 +282,11 @@
                     top: 0;
                     opacity: 100%;
                 }
+
+                img {
+                    filter: none;
+                    scale: 1.05;
+                }
             }
 
             img {
@@ -289,11 +296,6 @@
                 filter: grayscale(1);
                 cursor: pointer;
                 transition: scale 0.5s ease;
-
-                &:hover {
-                    filter: none;
-                    scale: 1.05;
-                }
             }
 
             .projectDescriptionContainer {

@@ -1,4 +1,4 @@
-import React, { useContext, useState, useRef } from "react";
+import React, { useContext, useState, useRef, useEffect } from "react";
 import { Link } from "react-router";
 import { ComposableMap, Geographies, Geography, Marker, useMapContext } from "react-simple-maps";
 import { motion, AnimatePresence, useInView } from "motion/react"
@@ -9,20 +9,15 @@ import styles from "../../styles/page_styles/Anasayfa.module.scss";
 const TURKEY_TOPO_URL = trJson;
 const IZMIR_COORDS = [27.14, 38.42];
 
-const DESTINATIONS = [
-    { name: "Ankara", coords: [32.85, 39.93] },
-    { name: "Van", coords: [43.38, 38.49] },
-    { name: "Konya", coords: [32.48, 37.87] },
-    { name: "Trazbon", coords: [39.79, 40.81] }
-];
+const accentColor = typeof window !== 'undefined'
+    ? window.getComputedStyle(document.documentElement).getPropertyValue('--accentColor')
+    : "#e7a62e";
 
-
-
-const accentColor = window.getComputedStyle(document.documentElement).getPropertyValue('--accentColor');
-
-// Reusable City Marker Component with Hover Effect
+// --- Reusable City Marker Component ---
 const CityMarker = ({ coordinates, name, isSource = false, onClick }) => {
     const [isHovered, setIsHovered] = useState(false);
+
+    if (!coordinates) return null;
 
     return (
         <Marker
@@ -32,7 +27,6 @@ const CityMarker = ({ coordinates, name, isSource = false, onClick }) => {
             onClick={onClick}
             style={{ cursor: "pointer" }}
         >
-            {/* Pulsing effect for the Source (İzmir) or standard dot for others */}
             {isSource && (
                 <motion.circle
                     r={8}
@@ -44,7 +38,6 @@ const CityMarker = ({ coordinates, name, isSource = false, onClick }) => {
             )}
             <circle r={isSource ? 5 : 4} fill={isSource ? accentColor : "#333"} stroke="#fff" strokeWidth={1.5} />
 
-            {/* Hover Tooltip */}
             <AnimatePresence>
                 {isHovered && (
                     <motion.g
@@ -52,14 +45,7 @@ const CityMarker = ({ coordinates, name, isSource = false, onClick }) => {
                         animate={{ opacity: 1, y: -10 }}
                         exit={{ opacity: 0, y: 5 }}
                     >
-                        <rect
-                            x="-35"
-                            y="-30"
-                            width="70"
-                            height="22"
-                            rx="4"
-                            fill="rgba(0,0,0,0.8)"
-                        />
+                        <rect x="-35" y="-30" width="70" height="22" rx="4" fill="rgba(0,0,0,0.8)" />
                         <text
                             textAnchor="middle"
                             y="-15"
@@ -80,14 +66,15 @@ const CityMarker = ({ coordinates, name, isSource = false, onClick }) => {
     );
 };
 
-// Component that has access to the map projection
-const AnimatedLines = ({ isInView }) => {
+// --- Animated Lines Component (Receives data as Props) ---
+const AnimatedLines = ({ isInView, cityCoordinates }) => {
     const { projection } = useMapContext();
 
     return (
         <>
-            {DESTINATIONS.map((dest, i) => {
-                // Use the map's projection
+            {cityCoordinates?.map((dest, i) => {
+                if (!dest.coords) return null;
+
                 const [x1, y1] = projection(IZMIR_COORDS);
                 const [x2, y2] = projection(dest.coords);
 
@@ -98,7 +85,7 @@ const AnimatedLines = ({ isInView }) => {
 
                 return (
                     <motion.path
-                        key={`path-${i}`}
+                        key={`path-${dest.name}-${i}`}
                         d={curvePath}
                         fill="none"
                         stroke="black"
@@ -107,7 +94,7 @@ const AnimatedLines = ({ isInView }) => {
                         animate={isInView ? { pathLength: 1, opacity: 1 } : { pathLength: 0, opacity: 0 }}
                         transition={{
                             duration: 2,
-                            delay: i * 0.5,
+                            delay: i * 0.3,
                             ease: "easeInOut"
                         }}
                     />
@@ -117,13 +104,35 @@ const AnimatedLines = ({ isInView }) => {
     );
 };
 
+// --- Main Map Section ---
 const MapChartSection = () => {
-    const { setSelectedCity } = useContext(ProjectContext);
+    const { setSelectedCity, allCities } = useContext(ProjectContext);
+    const [cityCoordinates, setCityCoordinates] = useState([]);
     const ref = useRef(null);
     const isInView = useInView(ref, {
-        once: true, // Animation triggers only once
-        amount: 0.3 // Trigger when 30% of element is visible
+        once: true,
+        amount: 0.3
     });
+
+    useEffect(() => {
+        if (!allCities || allCities.length === 0) return;
+
+        const newCityCoordinates = allCities.map(cityObj => {
+            const cityName = typeof cityObj === 'string' ? cityObj : cityObj.city;
+            if (!cityName) return null;
+
+            const cityFeature = trJson.features.find(
+                f => f.properties.name.toLowerCase() === cityName.toLowerCase()
+            );
+
+            return {
+                name: cityName,
+                coords: cityFeature ? cityFeature.geometry.center : null
+            };
+        }).filter(city => city !== null && city.coords !== null); // Clean data
+
+        setCityCoordinates(newCityCoordinates);
+    }, [allCities]);
 
     return (
         <section ref={ref} className={styles.mapChartSectionContainer}>
@@ -132,7 +141,7 @@ const MapChartSection = () => {
                 height={400}
                 projection="geoMercator"
                 projectionConfig={{ scale: 2200, center: [35, 39.05] }}
-                style={{ width: "100%", height: "auto", display: "flex", alignItems: "center", }}
+                style={{ width: "100%", height: "auto", display: "flex", alignItems: "center" }}
             >
                 <Link to={"/projeler"}>
                     <Geographies geography={TURKEY_TOPO_URL}>
@@ -159,14 +168,14 @@ const MapChartSection = () => {
                     </Geographies>
                 </Link>
 
-                {/* Animated Arcs - using map's projection */}
-                <AnimatedLines isInView={isInView} />
+                {/* Data flows into AnimatedLines */}
+                <AnimatedLines isInView={isInView} cityCoordinates={cityCoordinates} />
 
-                {/* Starting Point Marker */}
+                {/* Static Source Marker */}
                 <CityMarker coordinates={IZMIR_COORDS} name="İzmir" isSource={true} />
 
-                {/* Destination Markers */}
-                {DESTINATIONS.map((city, idx) => (
+                {/* Dynamic Destination Markers using the lifted state */}
+                {cityCoordinates.map((city, idx) => (
                     <CityMarker
                         key={`marker-${idx}`}
                         coordinates={city.coords}
