@@ -79,7 +79,7 @@ const AnimatedLines = ({ isInView, cityCoordinates }) => {
                 const [x2, y2] = projection(dest.coords);
 
                 const midX = (x1 + x2) / 2;
-                const midY = (y1 + y2) / 2 - 30;
+                const midY = (y1 + y2) / 2 - 50;
 
                 const curvePath = `M ${x1},${y1} Q ${midX},${midY} ${x2},${y2}`;
 
@@ -129,7 +129,10 @@ const MapChartSection = () => {
                 name: cityName,
                 coords: cityFeature ? cityFeature.geometry.center : null
             };
-        }).filter(city => city !== null && city.coords !== null); // Clean data
+        }).filter(city =>
+            city !== null &&
+            city.coords !== null &&
+            city.name !== "İzmir")
 
         setCityCoordinates(newCityCoordinates);
     }, [allCities]);
