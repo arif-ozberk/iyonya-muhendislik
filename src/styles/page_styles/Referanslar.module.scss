@@ -1,6 +1,36 @@
 @use "../globals.scss" as *;
 
 
-.Referanslar {
-    
+.referanslar {
+    min-height: calc(100vh - 4rem);
+    margin-top: 4rem;
+    padding-bottom: 10rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 1rem;
+    row-gap: 1rem;
+
+    li {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        list-style: none;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+        border: 1px solid $black;
+        transition: background-color 1s ease;
+        opacity: 0;
+        animation: fadeInUp-2rem 0.3s ease forwards;
+
+        &:hover {
+            background-color: $orange-main;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .referanslar {
+        grid-template-columns: 1fr 1fr;
+    }
 }

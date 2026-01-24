@@ -4,7 +4,8 @@ import { useState, useEffect } from "react";
 import styles from "../styles/page_styles/Proje.module.scss";
 
 // Components
-import SlickSlider from "../components/ProjeSayfaComponents/SlickSlider"
+import SlickSlider from "../components/ProjeSayfaComponents/SlickSlider";
+import VerticalSlider from "../components/ProjeSayfaComponents/VerticalSlider"
 import BackButton from "../components/ProjeSayfaComponents/BackButton";
 
 // Wrappers
@@ -28,7 +29,7 @@ const Project = () => {
         <PageWrapper>
             <div className={styles.projectMainContainer}>
 
-                <SlickSlider />
+                {isMobile ? <VerticalSlider /> : <SlickSlider />}
                 <BackButton />
 
             </div>

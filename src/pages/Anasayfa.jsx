@@ -18,7 +18,6 @@ import landingVideo from "../assets/logoAnimation.webm"
 // Functions
 import { findCurrentPage } from '../functions/FindCurrentPage';
 import projectsDb from '../config/projectsDb';
-import iyonyaDB from '../config/supabaseClient';
 import { ProjectContext } from '../context/ProjectContext';
 
 

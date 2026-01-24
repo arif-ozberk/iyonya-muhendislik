@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { motion } from "motion/react"
 
 //Assets
 import logoImage from "../../assets/iyonya-muhendislik-logo-woText.svg"
@@ -50,7 +51,11 @@ const AboutSection = () => {
 
 
     return (
-        <section className={styles.aboutSectionContainer}>
+        <motion.div className={styles.aboutSectionContainer} initial={{ opacity: 0, x: -200 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            // viewport={{ once: true }} 
+            transition={{ duration: 0.6, ease: "easeOut" }}
+        >
             <div className={styles.logoContainer}>
                 <img className={styles.aboutSectionLogo} src={logoImage} alt="iyonya-muhendislik-logo" />
                 <div className={styles.categoryButtons}>
@@ -75,7 +80,7 @@ const AboutSection = () => {
                 </div>
                 <Link className={styles.portfolioLinkButton} to={"/projeler"}>PROJELERİMİZE GÖZ ATIN</Link>
             </div>
-        </section>
+        </motion.div>
     );
 }
 

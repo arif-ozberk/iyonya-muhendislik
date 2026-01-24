@@ -10,11 +10,7 @@ $orange-main: #e87920;
 $dark-main: #111111;
 $dark-faded: #272727;
 $dark-hover: #2c2c2c;
-$dark-light: #313131;
 $gray-main: #474747;
-$gray-faded: #e0e0e0;
-$gray-dark: #5f5f5f;
-$popup-background: rgba(0, 0, 0, 0.8);
 
 
 
@@ -95,16 +91,10 @@ svg {
     height: 8px;
 }
 
-::-webkit-scrollbar-thumb {
-    border-radius: 10px;
-    background-color: $gray-dark;
-}
-
 ::-webkit-scrollbar-track {
     // background-color: $dark-faded;
     background-color: $white;
 }
-
 
 
 // Mixins
@@ -120,8 +110,6 @@ svg {
     align-items: center;
     justify-content: space-between;
 }
-
-
 
 
 // Dividers & Containers
@@ -181,21 +169,10 @@ svg {
 
 // Animations
 
-@keyframes popupBgFadeIn {
-    from {
-        background-color: transparent;
-    }
-
-    to {
-        background-color: $popup-background;
-    }
-}
-
-
-@keyframes fadeInUp-20px {
+@keyframes fadeInUp-2rem {
     from {
         opacity: 0;
-        transform: translateY(20px);
+        transform: translateY(2rem);
     }
 
     to {

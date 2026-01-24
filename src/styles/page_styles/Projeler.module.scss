@@ -205,7 +205,7 @@
                 }
 
                 &::-webkit-scrollbar-thumb {
-                    background-color: $black !important;
+                    background-color: $orange-main !important;
                 }
 
                 .dropdownMenu {
@@ -248,7 +248,7 @@
         grid-template-columns: 1fr 1fr;
         column-gap: 2rem;
         row-gap: 2rem;
-        overflow-x: hidden;
+        overflow: hidden;
 
 
         @media(max-width: 1000px) {
@@ -272,6 +272,8 @@
             overflow: hidden;
             display: flex;
             align-items: center;
+            opacity: 0;
+            animation: fadeInUp-2rem 0.3s forwards ease;
 
             @media(max-width: 460px) {
                 height: 10rem;
