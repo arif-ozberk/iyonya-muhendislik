@@ -16,53 +16,55 @@ const accentColor = typeof window !== 'undefined'
 // --- Reusable City Marker Component ---
 const CityMarker = ({ coordinates, name, isSource = false, onClick }) => {
     const [isHovered, setIsHovered] = useState(false);
+    const { setSelectedCity } = useContext(ProjectContext)
 
     if (!coordinates) return null;
 
     return (
-        <Marker
-            coordinates={coordinates}
-            onMouseEnter={() => setIsHovered(true)}
-            onMouseLeave={() => setIsHovered(false)}
-            onClick={onClick}
-            style={{ cursor: "pointer" }}
-        >
-            {isSource && (
-                <motion.circle
-                    r={8}
-                    fill={accentColor}
-                    opacity={0.3}
-                    animate={{ scale: [1, 1.8, 1], opacity: [0.3, 0.1, 0.3] }}
-                    transition={{ duration: 2, repeat: Infinity }}
-                />
-            )}
-            <circle r={isSource ? 5 : 4} fill={isSource ? accentColor : "#333"} stroke="#fff" strokeWidth={1.5} />
-
-            <AnimatePresence>
-                {isHovered && (
-                    <motion.g
-                        initial={{ opacity: 0, y: 5 }}
-                        animate={{ opacity: 1, y: -10 }}
-                        exit={{ opacity: 0, y: 5 }}
-                    >
-                        <rect x="-35" y="-30" width="70" height="22" rx="4" fill="rgba(0,0,0,0.8)" />
-                        <text
-                            textAnchor="middle"
-                            y="-15"
-                            style={{
-                                fontFamily: "sans-serif",
-                                fill: "#fff",
-                                fontSize: "11px",
-                                fontWeight: "500",
-                                pointerEvents: "none"
-                            }}
-                        >
-                            {name}
-                        </text>
-                    </motion.g>
+        <Link to={"/projeler"}>
+            <Marker
+                coordinates={coordinates}
+                onMouseEnter={() => setIsHovered(true)}
+                onMouseLeave={() => setIsHovered(false)}
+                onClick={() => setSelectedCity(name)}
+                style={{ cursor: "pointer" }}
+            >
+                {isSource && (
+                    <motion.circle
+                        r={8}
+                        fill={accentColor}
+                        opacity={0.3}
+                        animate={{ scale: [1, 1.8, 1], opacity: [0.3, 0.1, 0.3] }}
+                        transition={{ duration: 2, repeat: Infinity }}
+                    />
                 )}
-            </AnimatePresence>
-        </Marker>
+                <circle r={isSource ? 5 : 4} fill={isSource ? accentColor : "#333"} stroke="#fff" strokeWidth={1.5} />
+                <AnimatePresence>
+                    {isHovered && (
+                        <motion.g
+                            initial={{ opacity: 0, y: 5 }}
+                            animate={{ opacity: 1, y: -10 }}
+                            exit={{ opacity: 0, y: 5 }}
+                        >
+                            <rect x="-35" y="-30" width="70" height="22" rx="4" fill="rgba(0,0,0,0.8)" />
+                            <text
+                                textAnchor="middle"
+                                y="-15"
+                                style={{
+                                    fontFamily: "sans-serif",
+                                    fill: "#fff",
+                                    fontSize: "11px",
+                                    fontWeight: "500",
+                                    pointerEvents: "none"
+                                }}
+                            >
+                                {name}
+                            </text>
+                        </motion.g>
+                    )}
+                </AnimatePresence>
+            </Marker>
+        </Link>
     );
 };
 
@@ -138,7 +140,7 @@ const MapChartSection = () => {
     }, [allCities]);
 
     return (
-        <section ref={ref} className={styles.mapChartSectionContainer}>
+        <motion.div ref={ref} className={styles.mapChartSectionContainer}>
             <ComposableMap
                 width={800}
                 height={400}
@@ -186,7 +188,7 @@ const MapChartSection = () => {
                     />
                 ))}
             </ComposableMap>
-        </section>
+        </motion.div>
     );
 }
 

@@ -80,6 +80,7 @@ const SlickSlider = () => {
                                 src={picture}
                                 onDragStart={e => e.preventDefault()}
                                 alt=""
+                                style={{ animationDelay: `${(id * 0.3) + 0.1}s` }}
                             />
                         </div>
                     ))}

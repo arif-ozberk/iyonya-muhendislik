@@ -6,7 +6,6 @@ const fetchAllProjects = async (setProjects, selectedProjectType, loadCount) => 
         .from('projects_sql')
         .select()
         .eq("isFinished", selectedProjectType)
-        .range(0, loadCount)
         .order('id', { ascending: true });
 
     if (error) {
@@ -51,7 +50,6 @@ const fetchAllCities = async (setAllCities) => {
     if (data) {
 
         const uniqueCities = [...new Set(data.map(item => item.city))];
-        console.log(uniqueCities);
         setAllCities(uniqueCities);
     }
 }

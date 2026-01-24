@@ -90,6 +90,7 @@ const VerticalSlider = () => {
                                         src={picture}
                                         alt={`Project image ${id + 1}`}
                                         onDragStart={(e) => e.preventDefault()}
+                                        style={{ animationDelay: `${(id * 0.3) + 0.1}s` }}
                                     />
                                 </section>
                             ))}

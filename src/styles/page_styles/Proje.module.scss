@@ -37,10 +37,14 @@
     height: calc(100vh - 20rem);
     object-fit: cover;
     cursor: grab;
+    opacity: 0;
+    animation: fadeInUp-2rem 0.3s ease forwards;
 }
 
 .slide h1 {
     margin-bottom: 1rem;
+    opacity: 0;
+    animation: fadeInUp-2rem 0.3s ease forwards;
 
     @media (max-width: 768px) {
         font-size: 24px;
@@ -51,6 +55,8 @@
     font-weight: 500;
     color: $gray-main;
     text-align: end;
+    opacity: 0;
+    animation: fadeInUp-2rem 0.3s ease forwards;
 
     @media (max-width: 768px) {
         font-size: 12px;
@@ -100,7 +106,7 @@
 .backButtonDiv:hover>.backButton {
     scale: 1.1;
     animation: backAnimation 1s infinite;
-    color: $orange-main;
+    fill: $orange-main;
 }
 
 img,
