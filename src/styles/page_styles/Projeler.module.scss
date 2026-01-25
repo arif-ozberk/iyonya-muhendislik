@@ -1,6 +1,19 @@
 @use "../globals.scss" as *;
 
 
+@keyframes fadeInUp-2rem {
+    from {
+        opacity: 0;
+        transform: translateY(2rem);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
 .projeler {
     min-height: calc(100vh - 4rem);
     padding-bottom: 4rem;
@@ -273,11 +286,7 @@
             display: flex;
             align-items: center;
             opacity: 0;
-            // animation: "fadeInUp-2rem" 0.3s forwards ease;
-
-            :global {
-                animation: "fadeInUp-2rem" 0.3s forwards ease;
-            }
+            animation: fadeInUp-2rem 0.3s forwards ease;
 
             @media(max-width: 460px) {
                 height: 10rem;
