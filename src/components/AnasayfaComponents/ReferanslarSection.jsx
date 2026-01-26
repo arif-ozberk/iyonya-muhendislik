@@ -14,6 +14,7 @@ import referenceLogo6 from "../../assets/referanslar/reference-logo-6.png";
 import referenceLogo7 from "../../assets/referanslar/reference-logo-7.png";
 import referenceLogo8 from "../../assets/referanslar/reference-logo-8.png";
 import referenceLogo9 from "../../assets/referanslar/reference-logo-9.png";
+import referenceLogo10 from "../../assets/referanslar/reference-logo-10.png";
 
 // React Router
 import { Link } from 'react-router';
@@ -57,6 +58,10 @@ const ReferanslarSection = () => {
         {
             referenceName: "null",
             referenceImage: referenceLogo9
+        },
+        {
+            referenceName: "null",
+            referenceImage: referenceLogo10
         },
     ]
 

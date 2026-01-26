@@ -12,8 +12,8 @@ import styles from "../../styles/page_styles/Anasayfa.module.scss";
 
 // React-Icons
 import { BiWorld } from "react-icons/bi";
-import { FaNetworkWired } from "react-icons/fa";
-import { FaHelmetSafety } from "react-icons/fa6";
+import { RiLightbulbFlashFill } from "react-icons/ri";
+import { MdEngineering } from "react-icons/md";
 
 
 const AboutSection = () => {
@@ -26,25 +26,27 @@ const AboutSection = () => {
             buttonImage: <BiWorld />,
             title: "İYONYA MÜHENDİSLİK",
             textContent: [
-                "Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis rerum, vero totam ipsa illum tenetur recusandae veniam iste saepe cum doloremque, maiores ex nisi voluptatibus assumenda est quasi? Aspernatur, expedita?",
-                "Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis rerum, vero totam ipsa illum tenetur recusandae veniam iste saepe cum doloremque, maiores ex nisi voluptatibus assumenda est quasi? Aspernatur, expedita?"
+                "İyonya Mühendislik, restorasyon projeleri odaklı çalışan bir mühendislik firmasıdır. Tarihi ve kültürel yapıların özgün kimliğini koruyarak, elektrik tesisatı, aydınlatma tasarımı, kamera (CCTV) ve yangın algılama sistemleri alanlarında bütüncül çözümler sunar.",
+                "Koruma ilkelerini mühendislik disiplini ve çağdaş teknolojilerle birleştiren firmamız; proje, uygulama ve danışmanlık süreçlerini titizlikle yürütür. Amacımız, geçmişin değerlerini güvenli, işlevsel ve sürdürülebilir sistemlerle geleceğe taşımaktır."
             ]
         },
         {
             categoryId: 1,
-            buttonImage: <FaNetworkWired />,
-            title: "TITLE 2",
+            buttonImage: <RiLightbulbFlashFill />,
+            title: "AYDINLATMA TASARIMI",
             textContent: [
-                "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Impedit saepe alias voluptatibus vero, voluptatem tempore odit exercitationem cumque ipsum culpa sequi consectetur illo quod, adipisci ea? Repudiandae, soluta non explicabo deserunt ipsam recusandae quasi magni asperiores dolor illum.",
-                "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Asperiores facilis adipisci maxime illo magnam?"
+                "Aydınlatma, restorasyon projelerinde yalnızca bir teknik gereklilik değil, yapının mimari ve tarihi kimliğini ortaya çıkaran temel bir tasarım unsurudur. Doğru kurgulanmış aydınlatma çözümleri, mekânın özgün karakterini korurken algısını güçlendirir.",
+                "Iyonya Mühendislik, tarihi ve kültürel yapılarda aydınlatma tasarımını; koruma ilkeleri, görsel konfor ve enerji verimliliği doğrultusunda ele alır. Yapının malzemesine, ölçeğine ve kullanım amacına uygun armatür ve ışık senaryoları geliştirerek, estetik ve işlevsel çözümler sunar.",
+                "Projelerimizde çağdaş aydınlatma teknolojilerini, yapının ruhuna saygılı bir yaklaşımla bütünleştirir; mekânın gece ve gündüz algısını dengeli, güvenli ve sürdürülebilir şekilde tasarlarız."
             ]
         },
         {
             categoryId: 2,
-            buttonImage: <FaHelmetSafety />,
-            title: "TITLE 3",
+            buttonImage: <MdEngineering />,
+            title: "MÜHENDİSLİK HİZMETLERİMİZ",
             textContent: [
-                "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit odit numquam omnis pariatur est laudantium delectus laborum deleniti repellendus aperiam itaque, quae nemo iure hic excepturi explicabo adipisci, sapiente molestias nostrum consequuntur cum rem repudiandae reiciendis? Delectus quaerat id incidunt."
+                "İyonya Mühendislik, restorasyon ve yapı projelerinde mühendislik disiplinini estetik ve fonksiyonellikle birleştiren bir firmadır. Projelerimizde bilimsel analiz, planlama ve uygulama süreçlerini titizlikle yürütür, her adımda kalite ve güvenliği ön planda tutarız.",
+                "Elektrik tesisatından aydınlatma tasarımına, kamera sistemlerinden yangın algılama çözümlerine kadar kapsamlı mühendislik hizmetleri sunarak, yapının güvenli, işlevsel ve sürdürülebilir olmasını sağlarız. Hedefimiz, tarihi ve çağdaş yapılarda yenilikçi, verimli ve uzun ömürlü çözümler üretmektir."
             ]
         }
     ]
