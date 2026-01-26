@@ -17,13 +17,14 @@ import referenceLogo6 from "../assets/referanslar/reference-logo-6.png";
 import referenceLogo7 from "../assets/referanslar/reference-logo-7.png";
 import referenceLogo8 from "../assets/referanslar/reference-logo-8.png";
 import referenceLogo9 from "../assets/referanslar/reference-logo-9.png";
+import referenceLogo10 from "../assets/referanslar/reference-logo-10.png";
 
 
 
 const Referanslar = () => {
 
     const references = [
-        referenceLogo1, referenceLogo2, referenceLogo3, referenceLogo4, referenceLogo5, referenceLogo6, referenceLogo7, referenceLogo8, referenceLogo9
+        referenceLogo1, referenceLogo2, referenceLogo3, referenceLogo4, referenceLogo5, referenceLogo6, referenceLogo7, referenceLogo8, referenceLogo9, referenceLogo10
     ]
 
     return (
