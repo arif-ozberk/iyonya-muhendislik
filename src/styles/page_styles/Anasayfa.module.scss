@@ -337,11 +337,11 @@
                 .sliderTrack {
                     display: flex;
                     width: max-content;
-                    animation: scrollRightToLeft 30s linear infinite;
+                    // animation: scrollRightToLeft 30s linear infinite;
 
-                    &:hover {
-                        animation-play-state: paused;
-                    }
+                    // &:hover {
+                    //     animation-play-state: paused;
+                    // }
 
                     .slide {
                         width: 150px;

@@ -65,9 +65,9 @@
                 color: $dark-faded;
                 transition: 0.3s ease;
 
-                @media(max-width: 768px) {
-                    opacity: 0;
-                }
+                // @media(max-width: 768px) {
+                //     opacity: 0;
+                // }
 
                 &:hover {
                     color: $orange-main;
@@ -75,9 +75,9 @@
                 }
             }
 
-            .navLinksActive {
-                animation: slideFadeIn 0.8s ease forwards;
-            }
+            // .navLinksActive {
+            //     animation: slideFadeIn 0.8s ease forwards;
+            // }
         }
     }
 

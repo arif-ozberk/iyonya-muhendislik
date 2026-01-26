@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from "framer-motion";
 
 // Styles
 import styles from "../../styles/page_styles/Anasayfa.module.scss";
@@ -68,13 +69,22 @@ const ReferanslarSection = () => {
 
             <Link to="/referanslar">
                 <div className={styles.sliderContainer}>
-                    <div className={styles.sliderTrack}>
+                    <motion.div
+                        className={styles.sliderTrack}
+                        initial={{ x: 0 }}
+                        animate={{ x: "-50%" }}
+                        transition={{
+                            duration: 30,
+                            ease: "linear",
+                            repeat: Infinity,
+                        }}
+                    >
                         {duplicatedLogos.map((logo, index) => (
                             <div key={index} className={styles.slide}>
                                 <img src={logo.referenceImage} alt={`Logo ${index}`} />
                             </div>
                         ))}
-                    </div>
+                    </motion.div>
                 </div>
             </Link>
         </section>

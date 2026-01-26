@@ -57,8 +57,8 @@ const Navbar = () => {
                         <Link
                             key={routeItem.routePath}
                             to={routeItem.routePath}
-                            style={{ animationDelay: isNavlinksOpen ? `${(index * 0.1) + 0.1}s` : "" }}
-                            className={isNavlinksOpen ? styles.navLinksActive : ""}
+                            // style={{ animationDelay: isNavlinksOpen ? `${(index * 0.1) + 0.1}s` : "" }}
+                            // className={isNavlinksOpen ? styles.navLinksActive : ""}
                         >
                             {routeItem.pageName}
                         </Link>
