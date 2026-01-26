@@ -7,9 +7,6 @@ import styles from "../../styles/sharedComponents_styles/Navbar.module.scss";
 import { Link } from 'react-router';
 import { routes } from '../../routes/routes';
 
-// Components
-import Logo from './Logo';
-
 // React-Icons
 import { FaChevronDown } from "react-icons/fa6";
 
@@ -57,8 +54,6 @@ const Navbar = () => {
                         <Link
                             key={routeItem.routePath}
                             to={routeItem.routePath}
-                            // style={{ animationDelay: isNavlinksOpen ? `${(index * 0.1) + 0.1}s` : "" }}
-                            // className={isNavlinksOpen ? styles.navLinksActive : ""}
                         >
                             {routeItem.pageName}
                         </Link>

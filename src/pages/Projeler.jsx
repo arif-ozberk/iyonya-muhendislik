@@ -17,7 +17,7 @@ import { ProjectContext } from "../context/ProjectContext";
 // React-Router
 import { Link } from 'react-router'
 
-const MotionLink = motion(Link);
+const MotionLink = motion.create(Link);
 
 
 const Portfolio = () => {
@@ -101,8 +101,8 @@ const Portfolio = () => {
                                     alt=""
                                 />
                                 <div className={styles.projectDescriptionContainer}>
-                                    <h3>{item.projectName}</h3>
-                                    <p> "detayları görüntüle"</p>
+                                    <h3>{item.projectName.toLocaleUpperCase("tr-TR")}</h3>
+                                    {item.isFinished && <p> "detayları görüntüle"</p>}
                                 </div>
                             </MotionLink>
                         ))

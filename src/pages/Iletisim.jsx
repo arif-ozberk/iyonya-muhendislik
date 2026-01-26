@@ -8,11 +8,8 @@ import styles from "../styles/page_styles/Iletisim.module.scss";
 import Navbar from '../components/shared_components/Navbar';
 import Footer from '../components/shared_components/Footer';
 
-// Wrappers
-import PageWrapper from '../wrappers/PageWrapper';
-
-// Assets
-import iletisimImage from "../assets/iletisim-page-image.jpg"
+//Assets
+import logo from "../assets/iyonya-muhendislik-logo-woText.svg";
 
 // React-Icons
 import { FaLinkedin } from "react-icons/fa";
@@ -27,6 +24,12 @@ import { IoIosMail } from "react-icons/io";
 
 const Iletisim = () => {
 
+    const contactImages = [
+        { name: "YAŞAR MÜZESİ", url: "https://res.cloudinary.com/dabmjz0xr/image/upload/v1768914193/yasar-muzesi-1_zutiaj.jpg" },
+        { name: "İznik Müzesi", url: "https://res.cloudinary.com/dabmjz0xr/image/upload/v1769168495/iznik_1_pufeoa.jpg" },
+        { name: "Hierapolis Antik Kenti", url: "https://res.cloudinary.com/dabmjz0xr/image/upload/v1769210761/hierapolis_antik_kent_mafnqf.jpg" }
+    ]
+
     const socialMedia = [
         { icon: <FaInstagram />, url: "https://www.instagram.com" },
         { icon: <FaFacebookF />, url: "https://www.facebook.com" },
@@ -37,11 +40,11 @@ const Iletisim = () => {
 
     const contactInfo = [
         { icon: <FaHouseChimney />, text: "Alsancak Mah. Kıbrıs Şehitleri Cad. Kazmirci İş Merkezi No: 20/502 │ Konak-35220 │ İzmir │ Türkiye │" },
-        { icon: <FaPhoneAlt />, text: "0536 355 4701" },
+        { icon: <FaPhoneAlt />, text: "0536 355 4701", onClick: () => window.location.href = `tel:+905363554701` },
         { icon: <IoIosMail />, text: "info@iyonyamuhendislik.com.tr" }
     ]
 
-    
+
     useEffect(() => {
         window.scrollTo(0, 0);
     }, []);
@@ -51,7 +54,17 @@ const Iletisim = () => {
         <div className={styles.iletisim}>
             <Navbar />
             <div className={`${styles.iletisimPageContainer}`}>
-                <img src={iletisimImage} alt="iletisim-page-image" />
+                <img className={styles.logo} src={logo} />
+
+
+                <ul className={styles.stripeImageContainer}>
+                    {contactImages.map((image, id) => (
+                        <li key={id} style={{ backgroundImage: `url(${image.url})` }}>
+                            <p className={styles.projectNameContainer} >{image.name}</p>
+                        </li>
+                    ))}
+                </ul>
+
                 <motion.div
                     className={styles.contactDetails}
                     initial={{ opacity: 0, y: 30 }}
@@ -64,14 +77,14 @@ const Iletisim = () => {
                     <h1>İLETİŞİME GEÇ</h1>
                     <ul className={styles.contactInfo}>
                         {contactInfo.map((contactItem, index) => (
-                            <li key={index}>
+                            <li key={index} onClick={contactItem.onClick && contactItem.onClick}>
                                 {contactItem.icon}
                                 <p>{contactItem.text}</p>
                             </li>
                         ))}
 
                     </ul>
-                    
+
                     <ul className={styles.socialMedia}>
                         {socialMedia.map((media, index) => (
                             <motion.a
@@ -94,7 +107,7 @@ const Iletisim = () => {
             </div>
             <Footer />
         </div>
-        
+
     );
 }
 

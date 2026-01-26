@@ -8,7 +8,6 @@ import Anasayfa from "../pages/Anasayfa";
 import Projeler from "../pages/Projeler";
 import Referanslar from "../pages/Referanslar";
 import Iletisim from "../pages/Iletisim";
-import Uyeler from "../pages/Uyeler";
 import Proje from "../pages/Proje";
 
 
@@ -32,12 +31,7 @@ export const routes = [
         routePath: "/iletisim",
         routeElement: <Iletisim />,
         pageName: "İletişim"
-    },
-    // {
-    //     routePath: "/uyeler",
-    //     routeElement: <Uyeler />,
-    //     pageName: "Üyeler"
-    // }
+    }
 ];
 
 
@@ -50,7 +44,7 @@ export const router = createBrowserRouter(
             ))}
 
             <Route path="/proje/:id" element={<Proje />} />
-            
+
         </Route>
     )
 );
