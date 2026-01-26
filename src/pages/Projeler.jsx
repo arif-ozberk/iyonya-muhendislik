@@ -1,5 +1,5 @@
 import { useContext, useEffect, useMemo, useState } from "react";
-
+import { motion } from "framer-motion";
 
 // Styles
 import styles from "../styles/page_styles/Projeler.module.scss";
@@ -17,8 +17,7 @@ import { ProjectContext } from "../context/ProjectContext";
 // React-Router
 import { Link } from 'react-router'
 
-// React-Icons
-import { FaChevronDown } from "react-icons/fa6";
+const MotionLink = motion(Link);
 
 
 const Portfolio = () => {
@@ -82,11 +81,19 @@ const Portfolio = () => {
                         </li>
                     ) : (
                         filteredByProjectType.slice(0, loadCount).map((item, index) => (
-                            <Link to={`/proje/${item.id}`}
+                            <MotionLink
+                                to={`/proje/${item.id}`}
                                 className={styles.projectContainer}
                                 key={item.id}
                                 onClick={() => handleProjectClick(item.id)}
-                                style={{ animationDelay: loadCount <= loadIncrement ? `${((index) * 0.15) + 0.2}s` : `${((index - loadCount + loadIncrement) * 0.15) + 0.2}s` }}>
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{
+                                    duration: 0.4,
+                                    delay: (index % loadIncrement) * 0.2,
+                                    ease: "ease"
+                                }}
+                            >
                                 <img
                                     className={styles.projectImage}
                                     style={{ transform: `translateY(${item.imageYPosition}%)` }}
@@ -97,12 +104,12 @@ const Portfolio = () => {
                                     <h3>{item.projectName}</h3>
                                     <p> "detayları görüntüle"</p>
                                 </div>
-                            </Link>
+                            </MotionLink>
                         ))
                     )}
                 </ul>
 
-                {loadCount < filteredByProjectType.length && <h2 className={styles.loadButton} onClick={() => handleAnimationLoadTime()}>DAHA FAZLA PROJE YÜKLE</ h2>}
+                {loadCount < filteredByProjectType.length && <h2 className={styles.loadButton} onClick={() => handleAnimationLoadTime()}>DAHA FAZLA PROJE YÜKLE</h2>}
 
             </div>
 

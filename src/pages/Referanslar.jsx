@@ -1,4 +1,7 @@
 import React from 'react';
+import { motion } from "framer-motion";
+
+// React-Router
 import { Link } from 'react-router';
 
 // Styles
@@ -30,7 +33,18 @@ const Referanslar = () => {
         <PageWrapper>
             <div className={`${styles.referanslar}`}>
                 {references.map((url, id) => (
-                    <li key={id} className={styles.referenceItem} style={{ backgroundImage: `url(${url})`, animationDelay: `${(id * 0.1) + 0.1}s` }}></li>
+                    <motion.li
+                        key={id}
+                        className={styles.referenceItem}
+                        style={{ backgroundImage: `url(${url})` }}
+                        initial={{ opacity: 0, y: 30 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{
+                            duration: 0.4,
+                            ease: "ease",
+                            delay: (id * 0.1) + 0.1
+                        }}
+                    ></motion.li>
                 ))}
             </div>
         </PageWrapper>

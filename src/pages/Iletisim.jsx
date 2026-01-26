@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { motion } from "framer-motion";
 
 // Styles
 import styles from "../styles/page_styles/Iletisim.module.scss";
@@ -51,7 +52,15 @@ const Iletisim = () => {
             <Navbar />
             <div className={`${styles.iletisimPageContainer}`}>
                 <img src={iletisimImage} alt="iletisim-page-image" />
-                <div className={styles.contactDetails}>
+                <motion.div
+                    className={styles.contactDetails}
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{
+                        duration: 0.4,
+                        ease: "ease",
+                    }}
+                >
                     <h1>İLETİŞİME GEÇ</h1>
                     <ul className={styles.contactInfo}>
                         {contactInfo.map((contactItem, index) => (
@@ -65,10 +74,23 @@ const Iletisim = () => {
                     
                     <ul className={styles.socialMedia}>
                         {socialMedia.map((media, index) => (
-                            <a key={index} href={media.url} target='_blank'>{media.icon}</a>
+                            <motion.a
+                                key={index}
+                                href={media.url}
+                                target='_blank'
+                                initial={{ opacity: 0, y: 10 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{
+                                    duration: 0.2,
+                                    ease: "ease",
+                                    delay: (index * 0.1) + 0.3
+                                }}
+                            >
+                                {media.icon}
+                            </motion.a>
                         ))}
                     </ul>
-                </div>
+                </motion.div>
             </div>
             <Footer />
         </div>

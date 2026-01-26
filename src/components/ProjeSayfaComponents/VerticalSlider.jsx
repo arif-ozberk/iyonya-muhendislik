@@ -1,5 +1,6 @@
 // DEPENDENCIES
 import { useEffect, useContext, useState } from "react";
+import { motion } from "framer-motion";
 
 // Styles
 import styles from "../../styles/page_styles/Proje.module.scss";
@@ -68,7 +69,17 @@ const VerticalSlider = () => {
 
                 {!isLoading && selectedProject && (
                     <>
-                        <section className={`${styles.slide} vs-slide`} aria-roledescription="slide" aria-label="Project details">
+                        <motion.section
+                            className={`${styles.slide} vs-slide`}
+                            aria-roledescription="slide"
+                            aria-label="Project details"
+                            initial={{ opacity: 0, x: 30 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            transition={{
+                                duration: 0.4,
+                                ease: "ease"
+                            }}
+                        >
                             <h1>{selectedProject?.projectName}</h1>
 
                             <p>KONUM</p>
@@ -76,7 +87,7 @@ const VerticalSlider = () => {
 
                             <p>YIL</p>
                             <p className={styles.slideText}>{selectedProject?.year}</p>
-                        </section>
+                        </motion.section>
 
                         {selectedProject?.projectPictureUrl &&
                             selectedProject?.projectPictureUrl.map((picture, id) => (
@@ -86,11 +97,17 @@ const VerticalSlider = () => {
                                     aria-roledescription="slide"
                                     aria-label={`Image ${id + 1}`}
                                 >
-                                    <img
+                                    <motion.img
                                         src={picture}
                                         alt={`Project image ${id + 1}`}
                                         onDragStart={(e) => e.preventDefault()}
-                                        style={{ animationDelay: `${(id * 0.3) + 0.1}s` }}
+                                        initial={{ opacity: 0, x: 30 }}
+                                        animate={{ opacity: 1, x: 0 }}
+                                        transition={{
+                                            duration: 0.4,
+                                            ease: "ease",
+                                            delay: (id * 0.2) + 0.1
+                                        }}
                                     />
                                 </section>
                             ))}

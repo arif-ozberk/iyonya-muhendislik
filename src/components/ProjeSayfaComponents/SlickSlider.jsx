@@ -1,5 +1,6 @@
 // DEPENDENCIES
 import { useEffect, useContext, useRef, useState } from 'react'
+import { motion } from "framer-motion";
 
 // Styles
 import styles from "../../styles/page_styles/Proje.module.scss";
@@ -64,7 +65,15 @@ const SlickSlider = () => {
         <>
             {!isLoading && <div className={styles.mainSlider} ref={sliderRef}>
                 <Slider key={isMobile ? "vertical" : "horizontal"} {...settings}>
-                    <div className={styles.slide}>
+                    <motion.div
+                        className={styles.slide}
+                        initial={{ opacity: 0, y: 30 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{
+                            duration: 0.4,
+                            ease: "ease"
+                        }}
+                    >
                         <h1>{selectedProject?.projectName}</h1>
 
                         <p>KONUM</p>
@@ -72,15 +81,21 @@ const SlickSlider = () => {
 
                         <p>YIL</p>
                         <p className={styles.slideText}>{selectedProject?.year}</p>
-                    </div>
+                    </motion.div>
 
                     {selectedProject?.projectPictureUrl && selectedProject?.projectPictureUrl.map((picture, id) => (
                         <div className={styles.slide} key={id}>
-                            <img
+                            <motion.img
                                 src={picture}
                                 onDragStart={e => e.preventDefault()}
                                 alt=""
-                                style={{ animationDelay: `${(id * 0.3) + 0.1}s` }}
+                                initial={{ opacity: 0, y: 30 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{
+                                    duration: 0.4,
+                                    ease: "ease",
+                                    delay: (id * 0.2) + 0.1
+                                }}
                             />
                         </div>
                     ))}

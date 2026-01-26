@@ -16,7 +16,8 @@ const Filter = ({ searchText, setSearchText }) => {
         selectedProjectType, setSelectedProjectType,
         selectedCity, setSelectedCity,
         projects, setProjects,
-        loadCount, setLoadCount
+        loadCount, setLoadCount,
+        loadIncrement
     } = useContext(ProjectContext);
 
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -47,7 +48,7 @@ const Filter = ({ searchText, setSearchText }) => {
 
     const handleSelectedProjectType = (projectType) => {
         setSelectedProjectType(projectType);
-        setLoadCount(5);
+        setLoadCount(loadIncrement);
     };
 
 
