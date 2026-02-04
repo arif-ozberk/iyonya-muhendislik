@@ -7,7 +7,6 @@ import styles from "../styles/page_styles/Anasayfa.module.scss";
 import Navbar from '../components/shared_components/Navbar';
 import AboutSection from "../components/AnasayfaComponents/AboutSection"
 import MapChartSection from '../components/AnasayfaComponents/MapChartSection';
-import StatSection from '../components/AnasayfaComponents/StatSection';
 import ReferanslarSection from '../components/AnasayfaComponents/ReferanslarSection';
 import ScrollToTopButton from '../components/shared_components/ScrollToTopButton';
 import Footer from '../components/shared_components/Footer';
@@ -40,7 +39,6 @@ const Anasayfa = () => {
             <div className={styles.anasayfaContext}>
                 <AboutSection />
                 <MapChartSection />
-                <StatSection />
                 <ScrollToTopButton />
                 <ReferanslarSection />
             </div>
